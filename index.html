@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAMA9 | Restaurant Modern | Sighetu Marmației</title>
+    <meta name="description" content="VAMA9 - Un loc de popas modern pe drumul tău. Restaurant cu terasă spațioasă, bucătărie internațională și atmosferă contemporană în Sighetu Marmației.">
+    <meta name="keywords" content="vama9, restaurant sighet, restaurant maramureș, restaurant modern, terasă restaurant, bucătărie internațională, restaurant DN18, restaurant vama, restaurant strada teplitei">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vama9.online">
+    <link rel="icon" type="image/x-icon" href="Media/Logo1.webp">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="restaurant">
+    <meta property="og:url" content="https://vama9.online">
+    <meta property="og:title" content="VAMA9 - Restaurant Modern în Sighetu Marmației">
+    <meta property="og:description" content="Bucătărie internațională, terasă spațioasă și parcare gratuită. Deschiși zilnic 06:00-23:00">
+    <meta property="og:image" content="https://vama9.ro/Media/afara_vama9.webp">
+    <meta property="og:locale" content="ro_RO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vama9.online">
+    <meta name="twitter:title" content="VAMA9 - Restaurant Modern">
+    <meta name="twitter:description" content="Restaurant modern cu bucătărie internațională în Sighetu Marmației">
+    <meta name="twitter:image" content="https://vama9.ro/Media/afara_vama9.webp">
+
+    <!-- Local Business -->
+    <meta name="geo.region" content="RO-MM">
+    <meta name="geo.placename" content="Sighetu Marmației">
+    <meta name="geo.position" content="47.9316;23.8906">
+    <meta name="ICBM" content="47.9316, 23.8906">
+    
+    <!-- Optimized preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://maps.googleapis.com">
+
+    <!-- Optimized fonts with font-display swap and subset -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- Font Awesome - defer loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Critical CSS inlined, full CSS loaded async -->
+    <style>
+        /* Critical CSS - Above the fold styles */
+        :root {
+            --black: #0f0f0f;
+            --white: #ffffff;
+            --accent-primary: #059669;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        body {
+            font-family: var(--font-body);
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--white);
+            height: 80px;
+        }
+        .hero {
+            min-height: 100vh;
+            padding-top: 80px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f4 100%);
+        }
+        /* Mobile viewport height fix */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 100svh; /* Use small viewport height on mobile */
+            }
+            @supports not (height: 100svh) {
+                .hero {
+                    min-height: calc(var(--vh, 1vh) * 100);
+                }
+            }
+        }
+        /* Optimize font rendering with fallback metrics */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+        /* Font fallback with size-adjust to prevent CLS */
+        @font-face {
+            font-family: 'Inter Fallback';
+            src: local('Arial');
+            size-adjust: 107%;
+            ascent-override: 90%;
+            descent-override: 22%;
+            line-gap-override: 0%;
+        }
+        @font-face {
+            font-family: 'Bebas Fallback';
+            src: local('Impact');
+            size-adjust: 95%;
+            ascent-override: 100%;
+            descent-override: 20%;
+            line-gap-override: 0%;
+        }
+        body {
+            font-family: 'Inter Fallback', Arial, sans-serif;
+        }
+        .brand-text, .hero-headline, h1, h2, .section-title {
+            font-family: 'Bebas Fallback', Impact, sans-serif;
+        }
+    </style>
+    <link rel="preload" href="styles.css" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <!-- Structured Data for Restaurant -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "VAMA9",
+        "alternateName": "Vama 9",
+        "description": "Restaurant modern cu bucătărie internațională în Sighetu Marmației. Oferim pizza, preparate din carne la grătar, platouri și deserturi delicioase.",
+        "url": "https://vama9.ro",
+        "telephone": "+40749557541",
+        "image": [
+            "https://vama9.ro/Media/afara_vama9.webp",
+            "https://vama9.ro/Media/Interior.webp"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Strada Teplitei 66",
+            "addressLocality": "Sighetu Marmației",
+            "addressRegion": "Maramureș",
+            "postalCode": "435500",
+            "addressCountry": "RO"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "47.9316",
+            "longitude": "23.8906"
+        },
+        "openingHours": "Mo-Su 06:00-23:00",
+        "servesCuisine": ["International", "Romanian", "Pizza", "Grill"],
+        "priceRange": "$$",
+        "acceptsReservations": "EventsOnly",
+        "hasMenu": "https://vama9.ro/menu.html",
+        "paymentAccepted": ["Cash", "Credit Card"],
+        "currenciesAccepted": "RON",
+        "sameAs": [
+            "https://www.facebook.com/profile.php?id=61576052340245"
+        ],
+        "amenityFeature": [
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Free Parking",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Outdoor Seating",
+                "value": true
+            },
+            {
+                "@type": "LocationFeatureSpecification",
+                "name": "Terrace",
+                "value": true
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip Navigation Link for Accessibility -->
+    <a href="#main-content" class="skip-nav" aria-label="Sari la conținutul principal">Sari la conținut</a>
+
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Navigare principală">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-text">VAMA9</span>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="nav-link active" data-translate="nav_home" role="menuitem">Acasă</a></li>
+                <li role="none"><a href="#about" class="nav-link" data-translate="nav_about" role="menuitem">Despre</a></li>
+                <li role="none"><a href="menu.html" class="nav-link" data-translate="nav_menu" role="menuitem">Meniu</a></li>
+                <li role="none"><a href="#gallery" class="nav-link" data-translate="nav_gallery" role="menuitem">Galerie</a></li>
+                <li role="none"><a href="#contact" class="nav-link" data-translate="nav_contact" role="menuitem">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="tel:+40749557541" class="nav-cta nav-cta-large" aria-label="Sună pentru evenimente speciale">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                    <span data-translate="nav_reserve">Evenimente</span>
+                </a>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Deschide meniul" aria-expanded="false" aria-controls="nav-menu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero hero--fullscreen">
+            <div class="hero-overlay" aria-hidden="true"></div>
+
+            <div class="hero-content">
+                <p class="hero-tagline" data-translate="hero_tagline">Unde fiecare masă devine artă</p>
+                <h1 class="hero-headline">
+                    <span data-translate="hero_headline_line1">Savurează</span><br>
+                    <span data-translate="hero_headline_line2">Momentul</span>
+                </h1>
+
+                <div class="hero-actions">
+                    <a href="menu.html" class="btn btn-hero-primary">
+                        <span data-translate="hero_menu">Meniul</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#gallery" class="btn btn-hero-secondary">
+                        <span data-translate="hero_gallery">Galerie</span>
+                        <i class="fas fa-images"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-scroll-indicator">
+                <span data-translate="hero_scroll">Scroll</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <header class="section-header">
+                            <span class="section-badge" data-translate="about_badge">POVESTEA NOASTRĂ</span>
+                            <h2 class="section-title" data-translate="about_title">Un Loc de Întâlnire Modern</h2>
+                        </header>
+
+                        <p class="about-lead" data-translate="about_lead">
+                            Situat strategic lângă vama nouă, VAMA9 reprezintă mai mult decât un restaurant - este un punct de conexiune între călători și localnici, între tradiție și modernitate.
+                        </p>
+
+                        <div class="about-features">
+                            <article class="about-feature">
+                                <div class="feature-icon" aria-hidden="true">
+                                    <i class="fas fa-route"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 data-translate="about_journey_title">Călătorie & Conexiune</h3>
+                                    <p data-translate="about_journey_text">Un popas modern pentru călători, unde fiecare masă devine o experiență memorabilă.</p>
+                                </div>
+                            </article>
+
+                            <article class="about-feature">
+                                <div class="feature-icon" aria-hidden="true">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 data-translate="about_design_title">Design Contemporary</h3>
+                                    <p data-translate="about_design_text">Arhitectură minimalistă care îmbină eleganța cu funcționalitatea.</p>
+                                </div>
+                            </article>
+
+                            <article class="about-feature">
+                                <div class="feature-icon" aria-hidden="true">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h3 data-translate="about_fresh_title">Prospețime & Calitate</h3>
+                                    <p data-translate="about_fresh_text">Ingrediente proaspete și preparate cu atenție la detalii.</p>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="about-stats" role="group" aria-label="Informații program">
+                            <div class="stat">
+                                <span class="stat-number">06:00</span>
+                                <span class="stat-label" data-translate="about_open">Deschidem</span>
+                            </div>
+                            <div class="stat-divider" aria-hidden="true"></div>
+                            <div class="stat">
+                                <span class="stat-number">23:00</span>
+                                <span class="stat-label" data-translate="about_close">Închidem</span>
+                            </div>
+                            <div class="stat-divider" aria-hidden="true"></div>
+                            <div class="stat">
+                                <span class="stat-number">7/7</span>
+                                <span class="stat-label" data-translate="about_days">Zile</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-visual">
+                        <div class="visual-grid">
+                            <div class="visual-item large">
+                                <img src="Media/Interior.webp" alt="Interiorul modern al restaurantului VAMA9" width="800" height="1067" loading="lazy" decoding="async">
+                                <div class="visual-overlay">
+                                    <span data-translate="about_interior">Interior Modern</span>
+                                </div>
+                            </div>
+                            <div class="visual-item">
+                                <img src="Media/afara_vama9.webp" alt="Terasa exterioară VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                                <div class="visual-overlay">
+                                    <span data-translate="about_terrace">Terasă</span>
+                                </div>
+                            </div>
+                            <div class="visual-item">
+                                <img src="Media/3.webp" alt="Preparate culinare la VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                                <div class="visual-overlay">
+                                    <span data-translate="about_food">Mâncare</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section - Highlights Preview -->
+        <section id="menu" class="menu">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-badge" data-translate="menu_badge">MENIUL NOSTRU</span>
+                    <h2 class="section-title" data-translate="menu_title">Bucătărie Internațională</h2>
+                    <p class="section-subtitle" data-translate="menu_subtitle">
+                        O selecție diversă de preparate pentru toate gusturile
+                    </p>
+                </header>
+
+                <!-- Menu Highlights Grid - Simple, no images required -->
+                <div class="menu-simple-grid">
+                    <!-- Breakfast Category -->
+                    <div class="menu-category-card">
+                        <div class="menu-category-header">
+                            <i class="fas fa-coffee"></i>
+                            <h3 data-translate="menu_breakfast">Mic Dejun</h3>
+                        </div>
+                        <ul class="menu-simple-list">
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="breakfast_item1_name">Mic Dejun Tradițional</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">25 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="breakfast_item1_desc">Ouă, bacon, cârnat, roșii, pâine prăjită</p>
+                            </li>
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="breakfast_item2_name">Omletă cu Brânză</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">18 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="breakfast_item2_desc">Ouă proaspete, brânză locală, verdeață</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Main Course Category -->
+                    <div class="menu-category-card">
+                        <div class="menu-category-header">
+                            <i class="fas fa-utensils"></i>
+                            <h3 data-translate="menu_main">Fel Principal</h3>
+                        </div>
+                        <ul class="menu-simple-list">
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="menu_item1_name">Grătar Mixt</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">45 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="menu_item1_desc">Selecție de carne la grătar cu garnitură</p>
+                            </li>
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="main_item2_name">Ciorbă de Burtă</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">22 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="main_item2_desc">Tradițională, cu smântână și ardei iute</p>
+                            </li>
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="main_item3_name">Sarmale cu Mămăligă</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">32 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="main_item3_desc">Sarmale în foi de varză, mămăligă, smântână</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Pizza Category -->
+                    <div class="menu-category-card">
+                        <div class="menu-category-header">
+                            <i class="fas fa-pizza-slice"></i>
+                            <h3>Pizza</h3>
+                        </div>
+                        <ul class="menu-simple-list">
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name">Pizza Margherita</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">28 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="pizza_item1_desc">Roșii, mozzarella, busuioc proaspăt</p>
+                            </li>
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name">Pizza Quattro Stagioni</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">35 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="pizza_item2_desc">Șuncă, ciuperci, măsline, ardei</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Dessert Category -->
+                    <div class="menu-category-card">
+                        <div class="menu-category-header">
+                            <i class="fas fa-ice-cream"></i>
+                            <h3 data-translate="menu_dessert">Desert</h3>
+                        </div>
+                        <ul class="menu-simple-list">
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="dessert_item1_name">Papanași</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">16 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="dessert_item1_desc">Cu smântână și dulceață de vișine</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Drinks Category -->
+                    <div class="menu-category-card">
+                        <div class="menu-category-header">
+                            <i class="fas fa-cocktail"></i>
+                            <h3 data-translate="menu_drinks">Băuturi</h3>
+                        </div>
+                        <ul class="menu-simple-list">
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="drinks_item1_name">Cafea Espresso</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">8 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="drinks_item1_desc">Cafea proaspăt măcinată, aromă intensă</p>
+                            </li>
+                            <li>
+                                <div class="menu-simple-item">
+                                    <span class="item-name" data-translate="drinks_item2_name">Țuică de Maramureș</span>
+                                    <span class="item-dots"></span>
+                                    <span class="item-price">12 RON</span>
+                                </div>
+                                <p class="item-desc" data-translate="drinks_item2_desc">Țuică tradițională din fructe locale</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CTA for full menu -->
+                <div class="menu-cta">
+                    <p data-translate="menu_cta_text">Pentru meniul complet și prețuri actualizate</p>
+                    <a href="menu.html" class="btn btn-primary">
+                        <span>Vezi Meniul Complet</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-badge" data-translate="gallery_badge">GALERIE</span>
+                    <h2 class="section-title" data-translate="gallery_title">Atmosfera VAMA9</h2>
+                </header>
+                
+                <div class="gallery-grid" role="img" aria-label="Galerie foto VAMA9">
+                    <div class="gallery-item tall" role="button" tabindex="0" aria-label="Deschide imaginea interiorului modern">
+                        <img src="Media/Interior.webp" alt="Interiorul modern al restaurantului VAMA9 cu design contemporan" width="800" height="1067" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" role="button" tabindex="0" aria-label="Deschide imaginea exteriorului">
+                        <img src="Media/afara_vama9.webp" alt="Exteriorul și terasa restaurantului VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" role="button" tabindex="0" aria-label="Deschide imaginea cu mâncare">
+                        <img src="Media/1.webp" alt="Preparate culinare delicioase la VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item wide" role="button" tabindex="0" aria-label="Deschide imaginea cu masa și servirea">
+                        <img src="Media/2.webp" alt="Atmosfera de dining și servirea la VAMA9" width="800" height="533" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" role="button" tabindex="0" aria-label="Deschide imaginea cu bucătăria">
+                        <img src="Media/3.webp" alt="Bucătăria și preparatele VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" role="button" tabindex="0" aria-label="Deschide imaginea cu specialitățile">
+                        <img src="Media/5.webp" alt="Specialitățile casei la VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" role="button" tabindex="0" aria-label="Deschide imaginea cu specialitățile">
+                        <img src="Media/6.webp" alt="Specialitățile casei la VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item" role="button" tabindex="0" aria-label="Deschide imaginea cu specialitățile">
+                        <img src="Media/8.webp" alt="Specialitățile casei la VAMA9" width="800" height="600" loading="lazy" decoding="async">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-expand" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <header class="section-header">
+                            <span class="section-badge" data-translate="contact_badge">CONTACT</span>
+                            <h2 class="section-title" data-translate="contact_title">Vino să ne cunoști</h2>
+                        </header>
+                        
+                        <div class="contact-details">
+                            <address class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3 data-translate="contact_address">Adresă</h3>
+                                    <p>
+                                        Strada Teplitei 66<br>
+                                        435500 Sighetu Marmației<br>
+                                        România
+                                    </p>
+                                </div>
+                            </address>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3 data-translate="contact_hours">Program</h3>
+                                    <p data-translate="contact_schedule">Zilnic: 06:00 - 23:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon" aria-hidden="true">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h3 data-translate="contact_phone">Telefon</h3>
+                                    <p><a href="tel:+40749557541" aria-label="Sună la +40 749 557 541">+40 749 557 541</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-buttons">
+                            <a href="tel:+40749557541" class="btn btn-primary">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                                <span data-translate="contact_call">Sună pentru evenimente</span>
+                            </a>
+                            <button class="btn btn-outline" onclick="openMap()" aria-label="Deschide indicațiile către restaurant">
+                                <i class="fas fa-directions" aria-hidden="true"></i>
+                                <span data-translate="contact_directions">Direcții</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-map">
+                        <div class="map-container" onclick="openMap()" style="cursor: pointer;">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d681.5895808947185!2d23.938857769698177!3d47.939129400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4737bbfe90e20f49%3A0xfca2fca726822577!2sVAMa%209!5e0!3m2!1sen!2sro!4v1709823456789!5m2!1sen!2sro"
+                                width="600"
+                                height="450"
+                                style="border:0; width: 100%; height: 100%; border-radius: 12px; pointer-events: none;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                                title="Locația restaurantului VAMA9 pe Google Maps">
+                            </iframe>
+                            <div class="map-overlay">
+                                <div class="map-overlay-content">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    <p>Click pentru direcții</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>VAMA9</h3>
+                    <p data-translate="footer_tagline">Un popas modern pe drumul tău</p>
+                </div>
+                
+                <nav class="footer-links" aria-label="Link-uri footer">
+                    <a href="#home" data-translate="footer_home">Acasă</a>
+                    <a href="#about" data-translate="footer_about">Despre</a>
+                    <a href="menu.html" data-translate="footer_menu">Meniu</a>
+                    <a href="#gallery" data-translate="footer_gallery">Galerie</a>
+                    <a href="#contact" data-translate="footer_contact">Contact</a>
+                </nav>
+                
+                <div class="footer-social" role="group" aria-label="Link-uri sociale">
+                    <a href="https://www.facebook.com/profile.php?id=61576052340245" aria-label="Urmărește-ne pe Facebook" rel="noopener noreferrer">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" aria-label="Urmărește-ne pe Instagram" rel="noopener noreferrer">
+                        <i class="fab fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 VAMA9. <span data-translate="footer_rights">Toate drepturile rezervate. RAUL.</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Action Bar -->
+    <div class="mobile-sticky-bar" id="mobile-sticky-bar">
+        <a href="tel:+40749557541" class="sticky-action sticky-call">
+            <i class="fas fa-phone"></i>
+            <span>Sună</span>
+        </a>
+        <a href="menu.html" class="sticky-action sticky-menu">
+            <i class="fas fa-utensils"></i>
+            <span>Meniu</span>
+        </a>
+        <a href="#contact" class="sticky-action sticky-location">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Locație</span>
+        </a>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" aria-label="Înapoi sus">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Error Boundary -->
+    <div id="error-boundary" class="error-boundary" style="display: none;" role="alert">
+        <div class="error-content">
+            <h3>Oops! Ceva nu a mers bine</h3>
+            <p>Ne pare rău, dar a apărut o eroare. Te rugăm să reîmprospătezi pagina.</p>
+            <button onclick="location.reload()" class="btn btn-primary">Reîmprospătează</button>
+        </div>
+    </div>
+
+    <!-- Scripts loaded with proper error handling -->
+    <script>
+        // Critical error handling
+        window.addEventListener('error', function(e) {
+            console.error('Script error:', e.error);
+            document.getElementById('error-boundary').style.display = 'flex';
+        });
+
+        window.addEventListener('unhandledrejection', function(e) {
+            console.error('Unhandled promise rejection:', e.reason);
+        });
+    </script>
+    <script src="script.js" defer onerror="console.error('Failed to load main script')"></script>
+</body>
+
+</html>
+
+
+
+
