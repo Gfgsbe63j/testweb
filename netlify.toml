@@ -1,0 +1,58 @@
+# Netlify Configuration with Security Headers
+# This file provides security headers for the static website
+# These headers will work on Netlify, and similar configurations can be applied to other hosting platforms
+
+[[headers]]
+  # Apply these headers to all pages
+  for = "/*"
+
+  [headers.values]
+    # Prevent browsers from incorrectly detecting content types
+    X-Content-Type-Options = "nosniff"
+
+    # Control how the site can be embedded in frames (prevents clickjacking)
+    # SAMEORIGIN allows embedding on same domain
+    X-Frame-Options = "SAMEORIGIN"
+
+    # Control how much referrer information is shared
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Disable unnecessary browser features and APIs
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+
+    # Content Security Policy - allows only necessary resources
+    # Configured for Google Fonts, Font Awesome CDN, and local resources
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+      font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+      img-src 'self' data: https:;
+      connect-src 'self';
+      frame-ancestors 'self';
+      base-uri 'self';
+      form-action 'self';
+    """
+
+[[headers]]
+  # Additional headers for static assets (images, fonts, etc.)
+  for = "/Media/*"
+
+  [headers.values]
+    # Cache static assets for 1 year
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  # Headers for CSS and JS files
+  for = "/*.css"
+
+  [headers.values]
+    # Cache CSS files for 1 year
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+
+  [headers.values]
+    # Cache JavaScript files for 1 year
+    Cache-Control = "public, max-age=31536000, immutable"
