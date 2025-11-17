@@ -3,6 +3,32 @@
 // Optimized Modular Architecture
 // =====================================
 
+// Critical error handling - runs immediately
+window.addEventListener('error', function(e) {
+    console.error('Script error:', e.error);
+    const errorBoundary = document.getElementById('error-boundary');
+    if (errorBoundary) {
+        errorBoundary.style.display = 'flex';
+    }
+});
+
+window.addEventListener('unhandledrejection', function(e) {
+    console.error('Unhandled promise rejection:', e.reason);
+});
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+                console.log('ServiceWorker registered:', registration.scope);
+            })
+            .catch((error) => {
+                console.log('ServiceWorker registration failed:', error);
+            });
+    });
+}
+
 // Configuration and Constants
 const CONFIG = {
     STORAGE_KEY: 'vama9_language',
@@ -1209,5 +1235,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mapContainer) {
         mapContainer.addEventListener('click', openMap);
+    }
+
+    // Error boundary reload button
+    const reloadBtn = document.querySelector('[data-action="reload"]');
+    if (reloadBtn) {
+        reloadBtn.addEventListener('click', () => location.reload());
     }
 });
