@@ -2,20 +2,13 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#047857">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="VAMA9">
-    <link rel="manifest" href="/manifest.json">
 
     <title>Meniu - VAMA9 Restaurant | Sighetu Marmației</title>
     <meta name="description" content="Meniul complet al restaurantului VAMA9 din Sighetu Marmației, Maramureș - Pizza autentică, preparate la grătar din porc și pasăre, platouri pentru evenimente și deserturi delicioase. Prețuri actualizate 2025.">
@@ -44,7 +37,7 @@
     }
     </script>
 
-    <!-- Restaurant Menu Schema with MenuItems -->
+    <!-- Restaurant Menu Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -54,186 +47,7 @@
         "hasMenu": {
             "@type": "Menu",
             "name": "Meniul VAMA9",
-            "description": "Meniu complet cu pizza, preparate la grătar, platouri și deserturi",
-            "hasMenuSection": [
-                {
-                    "@type": "MenuSection",
-                    "name": "Platouri",
-                    "description": "Platouri pentru evenimente și petreceri",
-                    "hasMenuItem": [
-                        {
-                            "@type": "MenuItem",
-                            "name": "Platou crispy de pui – 4 persoane",
-                            "description": "Pui crispy crocant, cartofi prăjiți aurii și sos la alegere",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "1200 kcal/persoană"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "150",
-                                "priceCurrency": "RON"
-                            }
-                        },
-                        {
-                            "@type": "MenuItem",
-                            "name": "Platou asortat – 4 persoane",
-                            "description": "Cotlet, ceafă, cârnăciori, piept de pui, mici, cartofi prăjiți, murături",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "1500 kcal/persoană"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "200",
-                                "priceCurrency": "RON"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "@type": "MenuSection",
-                    "name": "Pizza",
-                    "description": "Pizza autentică pe lemne",
-                    "hasMenuItem": [
-                        {
-                            "@type": "MenuItem",
-                            "name": "Pizza Vama 9",
-                            "description": "Mozzarella, șuncă, cârnați, salam, ciuperci, măsline, ardei gras, porumb, ceapă (650g)",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "1200 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "35",
-                                "priceCurrency": "RON"
-                            },
-                            "suitableForDiet": "https://schema.org/VegetarianDiet"
-                        },
-                        {
-                            "@type": "MenuItem",
-                            "name": "Pizza Carbonara",
-                            "description": "Mozzarella, bacon, ou, sos carbonara, parmezan (550g)",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "1100 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "34",
-                                "priceCurrency": "RON"
-                            }
-                        },
-                        {
-                            "@type": "MenuItem",
-                            "name": "Pizza Margherita",
-                            "description": "Mozzarella, sos pizza (450g)",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "800 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "23",
-                                "priceCurrency": "RON"
-                            },
-                            "suitableForDiet": "https://schema.org/VegetarianDiet"
-                        }
-                    ]
-                },
-                {
-                    "@type": "MenuSection",
-                    "name": "Preparate din Porc",
-                    "description": "Preparate la grătar din carne de porc",
-                    "hasMenuItem": [
-                        {
-                            "@type": "MenuItem",
-                            "name": "Ciolan de porc cu os glazurat",
-                            "description": "Cu cartofi prăjiți și sos de hrean",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "1300 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "53",
-                                "priceCurrency": "RON"
-                            }
-                        },
-                        {
-                            "@type": "MenuItem",
-                            "name": "Coaste de porc cu sos BBQ",
-                            "description": "Cu cartofi prăjiți",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "1250 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "55",
-                                "priceCurrency": "RON"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "@type": "MenuSection",
-                    "name": "Preparate din Pasăre",
-                    "description": "Preparate din pui și rață",
-                    "hasMenuItem": [
-                        {
-                            "@type": "MenuItem",
-                            "name": "Pulpe de rață",
-                            "description": "Cu cartofi gratinați și varză roșie",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "1100 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "62",
-                                "priceCurrency": "RON"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "@type": "MenuSection",
-                    "name": "Desert",
-                    "description": "Deserturi delicioase",
-                    "hasMenuItem": [
-                        {
-                            "@type": "MenuItem",
-                            "name": "Lava cake cu înghețată",
-                            "description": "Prăjitură caldă cu ciocolată topită și înghețată",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "700 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "22",
-                                "priceCurrency": "RON"
-                            }
-                        },
-                        {
-                            "@type": "MenuItem",
-                            "name": "Papanasi (1 buc)",
-                            "description": "Cu smântână și dulceață de afine",
-                            "nutrition": {
-                                "@type": "NutritionInformation",
-                                "calories": "550 kcal"
-                            },
-                            "offers": {
-                                "@type": "Offer",
-                                "price": "15",
-                                "priceCurrency": "RON"
-                            }
-                        }
-                    ]
-                }
-            ]
+            "description": "Meniu complet cu pizza, preparate la grătar, platouri și deserturi"
         }
     }
     </script>
@@ -1166,8 +980,47 @@
         <p>&copy; 2025 VAMA9. Toate drepturile rezervate.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
-    <script src="menu-page.js"></script>
+    <script>
+        // Smooth scroll for category links
+        document.querySelectorAll('.cat-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 140;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Sticky category nav
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('categoryNav');
+            if (window.scrollY > 100) {
+                nav.classList.add('sticky');
+            } else {
+                nav.classList.remove('sticky');
+            }
+        });
+    </script>
+
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('ServiceWorker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
