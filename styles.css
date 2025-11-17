@@ -1963,47 +1963,15 @@ section {
     }
 
     .gallery-grid {
-        display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        gap: 1rem;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
-        scrollbar-color: #047857 #e5e7eb;
-        padding-bottom: 1rem;
+        grid-template-columns: 1fr;
     }
 
-    .gallery-grid::-webkit-scrollbar {
-        height: 8px;
+    .gallery-item.wide {
+        grid-column: span 1;
     }
 
-    .gallery-grid::-webkit-scrollbar-track {
-        background: #e5e7eb;
-        border-radius: 4px;
-    }
-
-    .gallery-grid::-webkit-scrollbar-thumb {
-        background: #047857;
-        border-radius: 4px;
-    }
-
-    .gallery-grid::-webkit-scrollbar-thumb:hover {
-        background: #065f46;
-    }
-
-    .gallery-item {
-        flex: 0 0 280px;
-        height: 280px;
-        scroll-snap-align: start;
-    }
-
-    .gallery-item.wide,
     .gallery-item.tall {
-        flex: 0 0 280px;
-        height: 280px;
-        grid-column: auto;
-        grid-row: auto;
+        grid-row: span 1;
     }
     
     .contact-buttons {
