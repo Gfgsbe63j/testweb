@@ -1,0 +1,13 @@
+# Robots.txt for VAMA9 Restaurant
+# https://vama9.online
+
+User-agent: *
+Allow: /
+Disallow: /.git/
+Disallow: /.github/
+
+# Sitemaps
+Sitemap: https://vama9.online/sitemap.xml
+
+# Crawl-delay for good practice
+Crawl-delay: 1

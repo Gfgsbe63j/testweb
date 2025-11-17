@@ -1197,5 +1197,122 @@ document.addEventListener('DOMContentLoaded', () => {
     app.init();
 });
 
-// Make openMap globally available for onclick handlers
-window.openMap = openMap;
+// Initialize map click handlers when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Add event listeners for map opening
+    const openMapBtn = document.getElementById('open-map-btn');
+    const mapContainer = document.querySelector('.clickable-map');
+
+    if (openMapBtn) {
+        openMapBtn.addEventListener('click', openMap);
+    }
+
+    if (mapContainer) {
+        mapContainer.addEventListener('click', openMap);
+    }
+
+    // Initialize contact form
+    initContactForm();
+});
+
+/**
+ * Contact Form Handler
+ */
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formMessage = document.getElementById('form-message');
+        const submitBtn = form.querySelector('.form-submit');
+        const originalBtnText = submitBtn.innerHTML;
+
+        // Disable submit button and show loading
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Se trimite...</span>';
+
+        // Get form data
+        const formData = new FormData(form);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            phone: formData.get('phone') || 'Nu a fost furnizat',
+            subject: formData.get('subject'),
+            message: formData.get('message')
+        };
+
+        // Simulate form submission (in production, send to backend)
+        try {
+            // For demo purposes, we'll simulate a successful submission
+            // In production, replace this with actual fetch to your backend
+            await simulateFormSubmission(data);
+
+            // Show success message
+            formMessage.className = 'form-message success';
+            formMessage.textContent = '✓ Mesajul a fost trimis cu succes! Vă vom contacta în curând.';
+
+            // Reset form
+            form.reset();
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+            }, 5000);
+
+        } catch (error) {
+            // Show error message
+            formMessage.className = 'form-message error';
+            formMessage.textContent = '✗ A apărut o eroare. Vă rugăm să încercați din nou sau să ne sunați.';
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+            }, 5000);
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+}
+
+/**
+ * Simulate form submission
+ * In production, replace this with actual API call
+ */
+async function simulateFormSubmission(data) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            // For demo, log to console
+            console.log('Contact Form Submission:', data);
+            // Create mailto link as fallback
+            const subject = encodeURIComponent(`Contact Form: ${data.subject}`);
+            const body = encodeURIComponent(`Nume: ${data.name}\nEmail: ${data.email}\nTelefon: ${data.phone}\n\nMesaj:\n${data.message}`);
+            // Store for potential email client fallback
+            window.contactFormData = { subject, body };
+            resolve();
+        }, 1500);
+    });
+
+    /*
+    // Production code example using EmailJS or similar service:
+    emailjs.send('service_id', 'template_id', {
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        subject: data.subject,
+        message: data.message
+    });
+
+    // Or using your own backend:
+    const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    });
+    if (!response.ok) throw new Error('Submission failed');
+    return await response.json();
+    */
+}
