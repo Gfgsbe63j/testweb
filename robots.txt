@@ -1,10 +1,20 @@
 # Robots.txt for VAMA9 Restaurant
 # https://vama9.online
+# Namecheap cPanel Hosting
 
 User-agent: *
 Allow: /
-Disallow: /.git/
-Disallow: /.github/
+
+# Disallow cPanel and system directories
+Disallow: /cgi-bin/
+Disallow: /cpanel/
+Disallow: /webmail/
+Disallow: /.well-known/
+Disallow: /tmp/
+Disallow: /_vti_bin/
+Disallow: /error_docs/
+Disallow: /.htaccess
+Disallow: /.htpasswd
 
 # Sitemaps
 Sitemap: https://vama9.online/sitemap.xml
