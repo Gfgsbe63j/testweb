@@ -2,13 +2,20 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
 
     <!-- Security Headers -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.google.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#047857">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="VAMA9">
+    <link rel="manifest" href="/manifest.json">
 
     <title>VAMA9 | Restaurant Modern | Sighetu Marmației</title>
     <meta name="description" content="VAMA9 - Restaurant modern în Sighetu Marmației, Maramureș. Bucătărie internațională, pizza autentică, preparate la grătar, terasă spațioasă și parcare gratuită. Deschiși zilnic 06:00-23:00 pe DN18, Strada Teplitei 66.">
@@ -611,6 +618,10 @@
                             <a href="tel:+40749557541" class="btn btn-primary">
                                 <i class="fas fa-phone" aria-hidden="true"></i>
                                 <span data-translate="contact_call">Sună pentru evenimente</span>
+                            </a>
+                            <a href="https://wa.me/40749557541" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Trimite mesaj WhatsApp">
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                                <span>WhatsApp</span>
                             </a>
                             <button class="btn btn-outline" id="open-map-btn" aria-label="Deschide indicațiile către restaurant">
                                 <i class="fas fa-directions" aria-hidden="true"></i>

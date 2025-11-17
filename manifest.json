@@ -1,0 +1,58 @@
+{
+  "name": "VAMA9 Restaurant",
+  "short_name": "VAMA9",
+  "description": "Restaurant modern în Sighetu Marmației - Pizza, Grătar, Evenimente",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#047857",
+  "orientation": "portrait-primary",
+  "categories": ["food", "restaurant"],
+  "lang": "ro",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "Media/Logo1.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Media/Logo1.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "Media/Interior.webp",
+      "sizes": "800x1067",
+      "type": "image/webp",
+      "label": "Interiorul modern al restaurantului"
+    },
+    {
+      "src": "Media/1.webp",
+      "sizes": "800x600",
+      "type": "image/webp",
+      "label": "Preparate delicioase"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Meniu",
+      "short_name": "Meniu",
+      "description": "Vezi meniul complet",
+      "url": "/menu.html",
+      "icons": [
+        {
+          "src": "Media/Logo1.webp",
+          "sizes": "96x96",
+          "type": "image/webp"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
