@@ -31,6 +31,65 @@ body {
     padding: 0.6rem;
 }
 
+/* Breadcrumb Navigation */
+.breadcrumb {
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 98;
+    padding: 0.5rem 0;
+}
+
+.breadcrumb-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.breadcrumb-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item a {
+    color: #047857;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.breadcrumb-item a:hover {
+    color: #065f46;
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: #595959;
+    font-weight: 600;
+}
+
+.breadcrumb-separator {
+    color: #9ca3af;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+}
+
 .menu-header-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -70,7 +129,7 @@ body {
 /* Category Navigation */
 .category-nav {
     position: fixed;
-    top: 65px;
+    top: 107px; /* Adjusted for breadcrumb */
     left: 0;
     right: 0;
     background: #f9fafb;
@@ -175,7 +234,7 @@ body {
 
 /* Main Content */
 .menu-page-content {
-    padding-top: 140px;
+    padding-top: 182px; /* Adjusted for breadcrumb */
     background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
@@ -437,8 +496,17 @@ body {
         font-size: 0.9rem;
     }
 
-    .category-nav {
+    .breadcrumb {
         top: 60px;
+        padding: 0.4rem 0;
+    }
+
+    .breadcrumb-list {
+        font-size: 0.8rem;
+    }
+
+    .category-nav {
+        top: 102px; /* Adjusted for smaller breadcrumb */
     }
 
     .cat-link {
@@ -452,7 +520,7 @@ body {
     }
 
     .menu-page-content {
-        padding-top: 130px;
+        padding-top: 172px; /* Adjusted for breadcrumb */
     }
 
     .menu-footer-info {
@@ -525,37 +593,90 @@ body {
 
 /* Print Styles for Menu */
 @media print {
+    /* Hide navigation elements */
     .menu-header,
     .category-nav,
-    .back-home {
-        display: none;
+    .back-home,
+    .breadcrumb {
+        display: none !important;
     }
 
+    /* Reset spacing */
     .menu-page-content {
-        padding-top: 0;
+        padding-top: 0 !important;
+        background: #fff !important;
     }
 
     .menu-container {
-        max-width: 100%;
+        max-width: 100% !important;
+        padding: 1cm !important;
     }
 
+    /* Page breaks */
     .menu-category {
         page-break-inside: avoid;
+        page-break-after: auto;
+        margin-bottom: 1.5cm;
     }
 
-    .menu-item-card,
+    .menu-item-card {
+        page-break-inside: avoid;
+        border: 1px solid #e5e7eb !important;
+        margin-bottom: 0.3cm;
+    }
+
     .table-row {
         page-break-inside: avoid;
     }
 
-    body {
-        background: #fff;
-    }
-
+    /* Headers */
     .category-header {
-        background: #047857;
+        background: #047857 !important;
+        color: #fff !important;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        color-adjust: exact;
+        page-break-after: avoid;
+    }
+
+    .menu-page-header {
+        page-break-after: avoid;
+        margin-bottom: 1cm;
+        border-bottom: 2px solid #047857;
+        padding-bottom: 0.5cm;
+    }
+
+    /* Ensure colors print correctly */
+    .item-price {
+        color: #047857 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Body */
+    body {
+        background: #fff !important;
+        font-size: 11pt;
+    }
+
+    /* Add print header */
+    .menu-page-content::before {
+        content: "VAMA9 Restaurant - Meniu | Strada Teplitei 66, Sighetu Marmației | Tel: 0749 557 541";
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        font-size: 12pt;
+        margin-bottom: 1cm;
+        padding-bottom: 0.3cm;
+        border-bottom: 2px solid #047857;
+    }
+
+    /* Add page numbers */
+    @page {
+        margin: 1.5cm;
+        @bottom-right {
+            content: counter(page) " / " counter(pages);
+        }
     }
 }
 
