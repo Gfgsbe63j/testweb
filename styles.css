@@ -1601,119 +1601,6 @@ section {
 }
 
 /* =====================================
-   CONTACT FORM
-   ===================================== */
-
-.contact-form-wrapper {
-    margin-top: var(--spacing-xl);
-    background: var(--off-white);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--light-grey);
-}
-
-.contact-form-title {
-    font-size: 1.5rem;
-    color: var(--black);
-    margin-bottom: var(--spacing-md);
-    font-weight: 700;
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--dark-grey);
-    font-size: 0.95rem;
-}
-
-.form-group .required {
-    color: var(--accent-secondary);
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 0.875rem;
-    border: 2px solid var(--light-grey);
-    border-radius: var(--radius-md);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--charcoal);
-    background: var(--white);
-    transition: var(--transition-base);
-    min-height: 44px; /* Accessibility */
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 0 3px rgba(4, 120, 87, 0.1);
-}
-
-.form-group input:invalid:not(:placeholder-shown),
-.form-group select:invalid:not(:placeholder-shown),
-.form-group textarea:invalid:not(:placeholder-shown) {
-    border-color: var(--accent-secondary);
-}
-
-.form-group textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.form-group select {
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23595959' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 1rem center;
-    padding-right: 2.5rem;
-}
-
-.form-submit {
-    margin-top: var(--spacing-sm);
-    width: 100%;
-    justify-content: center;
-    font-size: 1.1rem;
-    padding: 1rem 2rem;
-}
-
-.form-message {
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-    display: none;
-    text-align: center;
-}
-
-.form-message.success {
-    display: block;
-    background: rgba(4, 120, 87, 0.1);
-    color: var(--accent-primary);
-    border: 2px solid var(--accent-primary);
-}
-
-.form-message.error {
-    display: block;
-    background: rgba(220, 38, 38, 0.1);
-    color: var(--accent-secondary);
-    border: 2px solid var(--accent-secondary);
-}
-
-/* =====================================
    FOOTER
    ===================================== */
 
@@ -2076,15 +1963,47 @@ section {
     }
 
     .gallery-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: #047857 #e5e7eb;
+        padding-bottom: 1rem;
     }
-    
-    .gallery-item.wide {
-        grid-column: span 1;
+
+    .gallery-grid::-webkit-scrollbar {
+        height: 8px;
     }
-    
+
+    .gallery-grid::-webkit-scrollbar-track {
+        background: #e5e7eb;
+        border-radius: 4px;
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb {
+        background: #047857;
+        border-radius: 4px;
+    }
+
+    .gallery-grid::-webkit-scrollbar-thumb:hover {
+        background: #065f46;
+    }
+
+    .gallery-item {
+        flex: 0 0 280px;
+        height: 280px;
+        scroll-snap-align: start;
+    }
+
+    .gallery-item.wide,
     .gallery-item.tall {
-        grid-row: span 1;
+        flex: 0 0 280px;
+        height: 280px;
+        grid-column: auto;
+        grid-row: auto;
     }
     
     .contact-buttons {

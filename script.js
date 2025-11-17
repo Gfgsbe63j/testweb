@@ -86,7 +86,7 @@ const translations = {
         about_badge: 'POVESTEA NOASTRĂ', about_title: 'Un Loc de Întâlnire Modern',
         about_lead: 'Situat strategic lângă vama nouă, VAMA9 reprezintă mai mult decât un restaurant - este un punct de conexiune între călători și localnici, între tradiție și modernitate.',
         about_journey_title: 'Călătorie & Conexiune', about_journey_text: 'Un popas modern pentru călători, unde fiecare masă devine o experiență memorabilă.',
-        about_design_title: 'Design Contemporary', about_design_text: 'Arhitectură minimalistă care îmbină eleganța cu funcționalitatea.',
+        about_design_title: 'Design Contemporan', about_design_text: 'Arhitectură minimalistă care îmbină eleganța cu funcționalitatea.',
         about_fresh_title: 'Prospețime & Calitate', about_fresh_text: 'Ingrediente proaspete și preparate cu atenție la detalii.',
         about_open: 'Deschidem', about_close: 'Închidem', about_days: 'Zile',
         about_interior: 'Interior Modern', about_terrace: 'Terasă', about_food: 'Mâncare',
@@ -1210,109 +1210,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mapContainer) {
         mapContainer.addEventListener('click', openMap);
     }
-
-    // Initialize contact form
-    initContactForm();
 });
-
-/**
- * Contact Form Handler
- */
-function initContactForm() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const formMessage = document.getElementById('form-message');
-        const submitBtn = form.querySelector('.form-submit');
-        const originalBtnText = submitBtn.innerHTML;
-
-        // Disable submit button and show loading
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Se trimite...</span>';
-
-        // Get form data
-        const formData = new FormData(form);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            phone: formData.get('phone') || 'Nu a fost furnizat',
-            subject: formData.get('subject'),
-            message: formData.get('message')
-        };
-
-        // Simulate form submission (in production, send to backend)
-        try {
-            // For demo purposes, we'll simulate a successful submission
-            // In production, replace this with actual fetch to your backend
-            await simulateFormSubmission(data);
-
-            // Show success message
-            formMessage.className = 'form-message success';
-            formMessage.textContent = '✓ Mesajul a fost trimis cu succes! Vă vom contacta în curând.';
-
-            // Reset form
-            form.reset();
-
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.className = 'form-message';
-            }, 5000);
-
-        } catch (error) {
-            // Show error message
-            formMessage.className = 'form-message error';
-            formMessage.textContent = '✗ A apărut o eroare. Vă rugăm să încercați din nou sau să ne sunați.';
-
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                formMessage.className = 'form-message';
-            }, 5000);
-        } finally {
-            // Re-enable submit button
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-        }
-    });
-}
-
-/**
- * Simulate form submission
- * In production, replace this with actual API call
- */
-async function simulateFormSubmission(data) {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            // For demo, log to console
-            console.log('Contact Form Submission:', data);
-            // Create mailto link as fallback
-            const subject = encodeURIComponent(`Contact Form: ${data.subject}`);
-            const body = encodeURIComponent(`Nume: ${data.name}\nEmail: ${data.email}\nTelefon: ${data.phone}\n\nMesaj:\n${data.message}`);
-            // Store for potential email client fallback
-            window.contactFormData = { subject, body };
-            resolve();
-        }, 1500);
-    });
-
-    /*
-    // Production code example using EmailJS or similar service:
-    emailjs.send('service_id', 'template_id', {
-        from_name: data.name,
-        from_email: data.email,
-        phone: data.phone,
-        subject: data.subject,
-        message: data.message
-    });
-
-    // Or using your own backend:
-    const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    });
-    if (!response.ok) throw new Error('Submission failed');
-    return await response.json();
-    */
-}
