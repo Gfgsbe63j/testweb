@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.google.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://www.google.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; frame-src https://www.google.com; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -153,7 +153,14 @@
             "latitude": "47.9316",
             "longitude": "23.8906"
         },
-        "openingHours": "Mo-Su 06:00-23:00",
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "opens": "06:00",
+                "closes": "23:00"
+            }
+        ],
         "servesCuisine": ["International", "Romanian", "Pizza", "Grill"],
         "priceRange": "$$",
         "acceptsReservations": "EventsOnly",
@@ -501,7 +508,7 @@
                     <h2 class="section-title" data-translate="gallery_title">Atmosfera VAMA9</h2>
                 </header>
                 
-                <div class="gallery-grid" role="img" aria-label="Galerie foto VAMA9">
+                <div class="gallery-grid" role="region" aria-label="Galerie foto VAMA9">
                     <div class="gallery-item tall" role="button" tabindex="0" aria-label="Deschide imaginea interiorului modern">
                         <img src="Media/Interior.webp" alt="Interiorul modern al restaurantului VAMA9 cu design contemporan" width="800" height="1067" loading="lazy" decoding="async">
                         <div class="gallery-overlay">
@@ -689,42 +696,16 @@
     </button>
 
     <!-- Error Boundary -->
-    <div id="error-boundary" class="error-boundary" style="display: none;" role="alert">
+    <div id="error-boundary" class="error-boundary" role="alert">
         <div class="error-content">
             <h3>Oops! Ceva nu a mers bine</h3>
             <p>Ne pare rău, dar a apărut o eroare. Te rugăm să reîmprospătezi pagina.</p>
-            <button onclick="location.reload()" class="btn btn-primary">Reîmprospătează</button>
+            <button class="btn btn-primary" data-action="reload">Reîmprospătează</button>
         </div>
     </div>
 
     <!-- Scripts loaded with proper error handling -->
-    <script>
-        // Critical error handling
-        window.addEventListener('error', function(e) {
-            console.error('Script error:', e.error);
-            document.getElementById('error-boundary').style.display = 'flex';
-        });
-
-        window.addEventListener('unhandledrejection', function(e) {
-            console.error('Unhandled promise rejection:', e.reason);
-        });
-    </script>
-    <script src="script.js" defer onerror="console.error('Failed to load main script')"></script>
-
-    <!-- Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('ServiceWorker registered:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('ServiceWorker registration failed:', error);
-                    });
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
