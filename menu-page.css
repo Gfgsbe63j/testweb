@@ -166,43 +166,13 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Fade gradient on right edge to indicate scrollable content */
-.category-nav::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 6px; /* Account for scrollbar */
-    width: 60px;
-    background: linear-gradient(to left, #f9fafb 0%, rgba(249, 250, 251, 0) 100%);
-    pointer-events: none;
-    z-index: 2;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
-
-/* Hide gradient on desktop when content doesn't overflow */
-@media (min-width: 1200px) {
-    .category-nav::after {
-        display: none;
-    }
-}
-
 .category-nav-container {
     display: flex;
     gap: 0.25rem;
     padding: 0.75rem;
-    padding-right: 80px; /* Extra padding on mobile to prevent last item from being cut by gradient */
     max-width: 1200px;
     margin: 0 auto;
     min-width: min-content;
-}
-
-/* Reset padding on desktop */
-@media (min-width: 1200px) {
-    .category-nav-container {
-        padding-right: 0.75rem;
-    }
 }
 
 .cat-link {
