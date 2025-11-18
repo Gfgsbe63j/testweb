@@ -1104,14 +1104,7 @@ class PerformanceMonitor {
 
     reportMetrics() {
         const loadTime = this.metrics.loadComplete - this.metrics.loadStart;
-
-        // Report to analytics if available
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'timing_complete', {
-                name: 'load',
-                value: Math.round(loadTime)
-            });
-        }
+        // Metrics collected but not reported to any analytics service
     }
 }
 
