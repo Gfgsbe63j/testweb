@@ -1,698 +1,1173 @@
-/* =====================================
-   MENU PAGE - MOBILE-FIRST QR CODE OPTIMIZED
-   ===================================== */
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
 
-/* Base Styles - Fix white space under footer */
-html {
-    height: 100%;
-}
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
-body {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-}
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#047857">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="VAMA9">
+    <link rel="manifest" href="/manifest.json">
 
-.menu-page-content {
-    flex: 1;
-}
+    <title>Meniu - VAMA9 Restaurant | Sighetu Marmației</title>
+    <meta name="description" content="Meniul complet al restaurantului VAMA9 din Sighetu Marmației, Maramureș - Pizza autentică, preparate la grătar din porc și pasăre, platouri pentru evenimente și deserturi delicioase. Prețuri actualizate 2025.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vama9.online/menu.html">
 
-/* Menu Header */
-.menu-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    padding: 0.6rem;
-}
-
-/* Breadcrumb Navigation */
-.breadcrumb {
-    position: fixed;
-    top: 65px;
-    left: 0;
-    right: 0;
-    background: #f8f9fa;
-    border-bottom: 1px solid #e5e7eb;
-    z-index: 98;
-    padding: 0.5rem 0;
-}
-
-.breadcrumb-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.breadcrumb-list {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0;
-    padding: 0;
-    font-size: 0.875rem;
-}
-
-.breadcrumb-item {
-    display: flex;
-    align-items: center;
-}
-
-.breadcrumb-item a {
-    color: #047857;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.breadcrumb-item a:hover {
-    color: #065f46;
-    text-decoration: underline;
-}
-
-.breadcrumb-item.active {
-    color: #595959;
-    font-weight: 600;
-}
-
-.breadcrumb-separator {
-    color: #9ca3af;
-    font-size: 0.7rem;
-    display: flex;
-    align-items: center;
-}
-
-.menu-header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.menu-logo .brand-text {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2rem;
-    color: #0f0f0f;
-    letter-spacing: 2px;
-}
-
-.back-home {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #047857;
-    text-decoration: none;
-    font-weight: 600;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    transition: all 0.2s;
-    min-height: 44px;
-}
-
-.back-home:hover {
-    background: rgba(4, 120, 87, 0.1);
-}
-
-.back-home i {
-    font-size: 1.1rem;
-}
-
-/* Category Navigation */
-.category-nav {
-    position: fixed;
-    top: 107px; /* Adjusted for breadcrumb */
-    left: 0;
-    right: 0;
-    background: #f9fafb;
-    border-bottom: 2px solid #e5e7eb;
-    z-index: 99;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: #047857 #e5e7eb;
-}
-
-/* Custom scrollbar for webkit browsers (Chrome, Safari, Edge) */
-.category-nav::-webkit-scrollbar {
-    height: 6px;
-}
-
-.category-nav::-webkit-scrollbar-track {
-    background: #e5e7eb;
-    border-radius: 3px;
-}
-
-.category-nav::-webkit-scrollbar-thumb {
-    background: #047857;
-    border-radius: 3px;
-    transition: background 0.2s;
-}
-
-.category-nav::-webkit-scrollbar-thumb:hover {
-    background: #065f46;
-}
-
-.category-nav.sticky {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.category-nav-container {
-    display: flex;
-    gap: 0.25rem;
-    padding: 0.75rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    min-width: min-content;
-}
-
-.cat-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.65rem 1.1rem;
-    background: #fff;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #2d2d2d;
-    font-size: 0.8rem;
-    font-weight: 600;
-    white-space: nowrap;
-    transition: all 0.2s;
-    flex-shrink: 0;
-    min-height: 44px;
-}
-
-.cat-link i {
-    font-size: 1.25rem;
-    color: #047857;
-}
-
-.cat-link:hover,
-.cat-link:active {
-    background: #047857;
-    color: #fff;
-    border-color: #047857;
-}
-
-.cat-link:hover i,
-.cat-link:active i {
-    color: #fff;
-}
-
-/* Main Content */
-.menu-page-content {
-    padding-top: 182px; /* Adjusted for breadcrumb */
-    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-}
-
-.menu-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 1rem;
-}
-
-/* Page Header */
-.menu-page-header {
-    text-align: center;
-    padding: 1rem 1rem;
-    margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
-    .menu-page-header {
-        padding: 1.5rem 1rem;
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Acasă",
+                "item": "https://vama9.online/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Meniu",
+                "item": "https://vama9.online/menu.html"
+            }
+        ]
     }
-}
-
-.menu-page-header h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(2rem, 8vw, 3rem);
-    color: #0f0f0f;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-}
-
-.menu-page-header h1 i {
-    color: #047857;
-}
-
-.menu-subtitle {
-    color: #666;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-/* Category Sections */
-.menu-category {
-    margin-bottom: 3rem;
-    scroll-margin-top: 150px;
-}
-
-.category-header {
-    background: linear-gradient(135deg, #047857 0%, #059669 100%);
-    color: #fff;
-    padding: 1rem 1.25rem;
-    border-radius: 12px;
-    margin-bottom: 1.25rem;
-    box-shadow: 0 4px 12px rgba(4, 120, 87, 0.2);
-}
-
-.category-header h2 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    letter-spacing: 1px;
-}
-
-/* Menu Item Cards */
-.menu-item-card {
-    background: #fff;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 1.25rem;
-    margin-bottom: 1rem;
-    transition: all 0.2s;
-}
-
-.menu-item-card:hover {
-    border-color: #047857;
-    box-shadow: 0 4px 12px rgba(4, 120, 87, 0.1);
-}
-
-.menu-item-card.featured {
-    border-color: #047857;
-    background: linear-gradient(135deg, rgba(4, 120, 87, 0.03) 0%, rgba(5, 150, 105, 0.05) 100%);
-}
-
-.item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-}
-
-.item-header h3 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #0f0f0f;
-    margin: 0;
-    flex: 1;
-    line-height: 1.3;
-}
-
-.item-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.5rem;
-    color: #047857;
-    font-weight: 400;
-    white-space: nowrap;
-    letter-spacing: 0.5px;
-}
-
-.item-description {
-    color: #666;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin: 0 0 0.75rem 0;
-}
-
-.item-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid #e5e7eb;
-}
-
-.calories {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: #666;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.calories i {
-    color: #f59e0b;
-    font-size: 0.9rem;
-}
-
-/* Menu Table Layout */
-.menu-table {
-    background: #fff;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.table-row {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 1rem;
-    padding: 1rem;
-    border-bottom: 1px solid #e5e7eb;
-    align-items: center;
-}
-
-.table-row:last-child {
-    border-bottom: none;
-}
-
-.table-row:hover {
-    background: rgba(4, 120, 87, 0.03);
-}
-
-.table-cell {
-    font-size: 0.95rem;
-}
-
-.table-cell.item-name {
-    font-weight: 600;
-    color: #0f0f0f;
-}
-
-.table-cell.item-price {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.25rem;
-    color: #047857;
-    font-weight: 400;
-}
-
-.table-cell.item-calories {
-    color: #666;
-    font-size: 0.85rem;
-    text-align: right;
-}
-
-
-.info-card {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.info-card i {
-    font-size: 2rem;
-    color: #047857;
-}
-
-.info-card div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-}
-
-.info-card strong {
-    color: #0f0f0f;
-    font-size: 0.9rem;
-    font-weight: 700;
-}
-
-.info-card a,
-.info-card span {
-    color: #666;
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-.info-card a:hover {
-    color: #047857;
-    text-decoration: underline;
-}
-
-/* Menu Footer */
-.menu-footer {
-    background: #0f0f0f;
-    color: #fff;
-    text-align: center;
-    padding: 2rem 1rem;
-    margin-top: auto;
-    width: 100%;
-}
-
-.menu-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #999;
-}
-
-/* =====================================
-   RESPONSIVE DESIGN
-   ===================================== */
-
-/* Tablet */
-@media (max-width: 768px) {
-    .menu-header {
-        padding: 0.75rem;
-    }
-
-    .menu-logo .brand-text {
-        font-size: 1.5rem;
-    }
-
-    .back-home {
-        padding: 0.65rem 1rem;
-        font-size: 0.9rem;
-    }
-
-    .breadcrumb {
-        top: 60px;
-        padding: 0.4rem 0;
-    }
-
-    .breadcrumb-list {
-        font-size: 0.8rem;
-    }
-
-    .category-nav {
-        top: 102px; /* Adjusted for smaller breadcrumb */
-    }
-
-    .cat-link {
-        font-size: 0.75rem;
-        padding: 0.6rem 0.9rem;
-        min-height: 48px;
-    }
-
-    .cat-link i {
-        font-size: 1.15rem;
-    }
-
-    .menu-page-content {
-        padding-top: 172px; /* Adjusted for breadcrumb */
-    }
-
-    .menu-footer-info {
-        grid-template-columns: 1fr;
-    }
-
-    .table-row {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
-    }
-
-    .table-cell.item-name {
-        font-size: 1rem;
-    }
-
-    .table-cell.item-price {
-        font-size: 1.4rem;
-    }
-
-    .table-cell.item-calories {
-        text-align: left;
-        font-size: 0.8rem;
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    .menu-container {
-        padding: 0.75rem;
-    }
-
-    .menu-page-header {
-        padding: 1.5rem 0.75rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .category-header {
-        padding: 0.75rem 1rem;
-    }
-
-    .menu-item-card {
-        padding: 1rem;
-    }
-
-    .item-header h3 {
-        font-size: 1rem;
-    }
-
-    .item-price {
-        font-size: 1.3rem;
-    }
-
-    .item-description {
-        font-size: 0.9rem;
-    }
-
-    .info-card i {
-        font-size: 1.5rem;
-    }
-
-    .info-card strong {
-        font-size: 0.85rem;
-    }
-
-    .info-card a,
-    .info-card span {
-        font-size: 0.85rem;
-    }
-}
-
-/* Print Styles for Menu */
-@media print {
-    /* Hide navigation elements */
-    .menu-header,
-    .category-nav,
-    .back-home,
-    .breadcrumb {
-        display: none !important;
-    }
-
-    /* Reset spacing */
-    .menu-page-content {
-        padding-top: 0 !important;
-        background: #fff !important;
-    }
-
-    .menu-container {
-        max-width: 100% !important;
-        padding: 1cm !important;
-    }
-
-    /* Page breaks */
-    .menu-category {
-        page-break-inside: avoid;
-        page-break-after: auto;
-        margin-bottom: 1.5cm;
-    }
-
-    .menu-item-card {
-        page-break-inside: avoid;
-        border: 1px solid #e5e7eb !important;
-        margin-bottom: 0.3cm;
-    }
-
-    .table-row {
-        page-break-inside: avoid;
-    }
-
-    /* Headers */
-    .category-header {
-        background: #047857 !important;
-        color: #fff !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        color-adjust: exact;
-        page-break-after: avoid;
-    }
-
-    .menu-page-header {
-        page-break-after: avoid;
-        margin-bottom: 1cm;
-        border-bottom: 2px solid #047857;
-        padding-bottom: 0.5cm;
-    }
-
-    /* Ensure colors print correctly */
-    .item-price {
-        color: #047857 !important;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-
-    /* Body */
-    body {
-        background: #fff !important;
-        font-size: 11pt;
-    }
-
-    /* Add print header */
-    .menu-page-content::before {
-        content: "VAMA9 Restaurant - Meniu | Strada Teplitei 66, Sighetu Marmației | Tel: 0749 557 541";
-        display: block;
-        text-align: center;
-        font-weight: bold;
-        font-size: 12pt;
-        margin-bottom: 1cm;
-        padding-bottom: 0.3cm;
-        border-bottom: 2px solid #047857;
-    }
-
-    /* Add page numbers */
-    @page {
-        margin: 1.5cm;
-        @bottom-right {
-            content: counter(page) " / " counter(pages);
+    </script>
+
+    <!-- Restaurant Menu Schema with MenuItems -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Restaurant",
+        "name": "VAMA9",
+        "url": "https://vama9.online",
+        "hasMenu": {
+            "@type": "Menu",
+            "name": "Meniul VAMA9",
+            "description": "Meniu complet cu pizza, preparate la grătar, platouri și deserturi",
+            "hasMenuSection": [
+                {
+                    "@type": "MenuSection",
+                    "name": "Platouri",
+                    "description": "Platouri pentru evenimente și petreceri",
+                    "hasMenuItem": [
+                        {
+                            "@type": "MenuItem",
+                            "name": "Platou crispy de pui – 4 persoane",
+                            "description": "Pui crispy crocant, cartofi prăjiți aurii și sos la alegere",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "1200 kcal/persoană"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "150",
+                                "priceCurrency": "RON"
+                            }
+                        },
+                        {
+                            "@type": "MenuItem",
+                            "name": "Platou asortat – 4 persoane",
+                            "description": "Cotlet, ceafă, cârnăciori, piept de pui, mici, cartofi prăjiți, murături",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "1500 kcal/persoană"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "200",
+                                "priceCurrency": "RON"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "MenuSection",
+                    "name": "Pizza",
+                    "description": "Pizza autentică pe lemne",
+                    "hasMenuItem": [
+                        {
+                            "@type": "MenuItem",
+                            "name": "Pizza Vama 9",
+                            "description": "Mozzarella, șuncă, cârnați, salam, ciuperci, măsline, ardei gras, porumb, ceapă (650g)",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "1200 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "35",
+                                "priceCurrency": "RON"
+                            },
+                            "suitableForDiet": "https://schema.org/VegetarianDiet"
+                        },
+                        {
+                            "@type": "MenuItem",
+                            "name": "Pizza Carbonara",
+                            "description": "Mozzarella, bacon, ou, sos carbonara, parmezan (550g)",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "1100 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "34",
+                                "priceCurrency": "RON"
+                            }
+                        },
+                        {
+                            "@type": "MenuItem",
+                            "name": "Pizza Margherita",
+                            "description": "Mozzarella, sos pizza (450g)",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "800 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "23",
+                                "priceCurrency": "RON"
+                            },
+                            "suitableForDiet": "https://schema.org/VegetarianDiet"
+                        }
+                    ]
+                },
+                {
+                    "@type": "MenuSection",
+                    "name": "Preparate din Porc",
+                    "description": "Preparate la grătar din carne de porc",
+                    "hasMenuItem": [
+                        {
+                            "@type": "MenuItem",
+                            "name": "Ciolan de porc cu os glazurat",
+                            "description": "Cu cartofi prăjiți și sos de hrean",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "1300 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "53",
+                                "priceCurrency": "RON"
+                            }
+                        },
+                        {
+                            "@type": "MenuItem",
+                            "name": "Coaste de porc cu sos BBQ",
+                            "description": "Cu cartofi prăjiți",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "1250 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "55",
+                                "priceCurrency": "RON"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "MenuSection",
+                    "name": "Preparate din Pasăre",
+                    "description": "Preparate din pui și rață",
+                    "hasMenuItem": [
+                        {
+                            "@type": "MenuItem",
+                            "name": "Pulpe de rață",
+                            "description": "Cu cartofi gratinați și varză roșie",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "1100 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "62",
+                                "priceCurrency": "RON"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "@type": "MenuSection",
+                    "name": "Desert",
+                    "description": "Deserturi delicioase",
+                    "hasMenuItem": [
+                        {
+                            "@type": "MenuItem",
+                            "name": "Lava cake cu înghețată",
+                            "description": "Prăjitură caldă cu ciocolată topită și înghețată",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "700 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "22",
+                                "priceCurrency": "RON"
+                            }
+                        },
+                        {
+                            "@type": "MenuItem",
+                            "name": "Papanasi (1 buc)",
+                            "description": "Cu smântână și dulceață de afine",
+                            "nutrition": {
+                                "@type": "NutritionInformation",
+                                "calories": "550 kcal"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "15",
+                                "priceCurrency": "RON"
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     }
-}
+    </script>
 
-/* Landscape Orientation */
-@media (orientation: landscape) and (max-height: 500px) {
-    .menu-page-header h1 {
-        font-size: 1.5rem;
-    }
+    <!-- Optimized preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-    .category-header h2 {
-        font-size: 1.25rem;
-    }
-}
+    <!-- Optimized fonts with preload -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 
-/* High contrast mode */
-@media (prefers-contrast: high) {
-    .cat-link {
-        border-width: 3px;
-    }
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-    .menu-item-card {
-        border-width: 3px;
-    }
+    <!-- Styles with preload and priority -->
+    <link rel="preload" href="styles.css" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="menu-page.css" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="menu-page.css">
+    </noscript>
 
-    .category-header {
-        border: 3px solid #047857;
-    }
-}
+    <!-- Inline critical CSS for menu page -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .menu-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            z-index: 100;
+            height: 65px;
+        }
+        .category-nav {
+            position: fixed;
+            top: 65px;
+            width: 100%;
+            background: #f9fafb;
+            z-index: 99;
+        }
+        .menu-page-content {
+            padding-top: 140px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Minimal Header for Menu Page -->
+    <header class="menu-header">
+        <div class="menu-header-container">
+            <a href="index.html" class="menu-logo">
+                <span class="brand-text">VAMA9</span>
+            </a>
+            <a href="index.html" class="back-home">
+                <i class="fas fa-arrow-left"></i>
+                <span>Acasă</span>
+            </a>
+        </div>
+    </header>
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        transition: none !important;
-        animation: none !important;
-    }
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="breadcrumb">
+        <div class="breadcrumb-container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home"></i> Acasă</a></li>
+                <li class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></li>
+                <li class="breadcrumb-item active" aria-current="page">Meniu</li>
+            </ol>
+        </div>
+    </nav>
 
-    html {
-        scroll-behavior: auto;
-    }
-}
+    <!-- Quick Category Navigation -->
+    <nav class="category-nav" id="categoryNav">
+        <div class="category-nav-container">
+            <a href="#platouri" class="cat-link">
+                <i class="fas fa-utensils"></i>
+                <span>Platouri</span>
+            </a>
+            <a href="#diverse" class="cat-link">
+                <i class="fas fa-cheese"></i>
+                <span>Diverse</span>
+            </a>
+            <a href="#garnituri" class="cat-link">
+                <i class="fas fa-drumstick-bite"></i>
+                <span>Garnituri</span>
+            </a>
+            <a href="#pizza" class="cat-link">
+                <i class="fas fa-pizza-slice"></i>
+                <span>Pizza</span>
+            </a>
+            <a href="#porc" class="cat-link">
+                <i class="fas fa-bacon"></i>
+                <span>Porc</span>
+            </a>
+            <a href="#pasare" class="cat-link">
+                <i class="fas fa-drumstick-bite"></i>
+                <span>Pasăre</span>
+            </a>
+            <a href="#sosuri" class="cat-link">
+                <i class="fas fa-pepper-hot"></i>
+                <span>Sosuri</span>
+            </a>
+            <a href="#salate" class="cat-link">
+                <i class="fas fa-leaf"></i>
+                <span>Salate</span>
+            </a>
+            <a href="#desert" class="cat-link">
+                <i class="fas fa-ice-cream"></i>
+                <span>Desert</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Menu Content -->
+    <main class="menu-page-content">
+        <div class="menu-container">
+            <!-- Page Title -->
+            <div class="menu-page-header">
+                <h1>
+                    <i class="fas fa-utensils"></i>
+                    Meniul Restaurantului
+                </h1>
+                <p class="menu-subtitle">Bucătărie tradițională și internațională</p>
+            </div>
+
+            <!-- Platouri Section -->
+            <section id="platouri" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-utensils"></i>
+                        Platouri
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Platou crispy de pui – 4 persoane</h3>
+                        <span class="item-price">150 RON</span>
+                    </div>
+                    <p class="item-description">Pui crispy crocant, cartofi prăjiți aurii și sos la alegere.</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1200 kcal/persoană
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Platou asortat – 4 persoane</h3>
+                        <span class="item-price">200 RON</span>
+                    </div>
+                    <p class="item-description">Cotlet, ceafă, cârnăciori, piept de pui, mici, cartofi prăjiți, murături.</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1500 kcal/persoană
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diverse Section -->
+            <section id="diverse" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-cheese"></i>
+                        Diverse
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cașcaval pane cu cartofi prăjiți</h3>
+                        <span class="item-price">35 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~850 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cartofi prăjiți cu mozzarella</h3>
+                        <span class="item-price">18 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~600 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Mozzarella sticks cu cartofi prăjiți și sos</h3>
+                        <span class="item-price">30 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~950 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Garnituri Section -->
+            <section id="garnituri" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-drumstick-bite"></i>
+                        Garnituri
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cartofi prăjiți (200g)</h3>
+                        <span class="item-price">10 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~450 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cartofi Wedges (200g)</h3>
+                        <span class="item-price">12 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~480 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cartofi Dippers (200g)</h3>
+                        <span class="item-price">12 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~470 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cartofi Wavy cu brânză și ceapă (200g)</h3>
+                        <span class="item-price">13 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~520 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cartofi Wavy cu usturoi și ierburi (200g)</h3>
+                        <span class="item-price">12 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~500 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Cartofi Wavy cu paprika (200g)</h3>
+                        <span class="item-price">12 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~490 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Pâine 2 felii (80g)</h3>
+                        <span class="item-price">2 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~150 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pizza Section -->
+            <section id="pizza" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-pizza-slice"></i>
+                        Pizza
+                    </h2>
+                </div>
+
+                <div class="menu-item-card featured">
+                    <div class="item-header">
+                        <h3>Vama 9</h3>
+                        <span class="item-price">35 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, șuncă, cârnați, salam, ciuperci, măsline, ardei gras, porumb, ceapă (650g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1200 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Carbonara</h3>
+                        <span class="item-price">34 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, bacon, ou, sos carbonara, parmezan (550g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1100 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Capriciosa</h3>
+                        <span class="item-price">32 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, șuncă, ciuperci, măsline, oregano, sos pizza (550g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1000 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Prosciutto Funghi</h3>
+                        <span class="item-price">30 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, șuncă, ciuperci, sos pizza (500g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~950 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Prosciutto Crudo</h3>
+                        <span class="item-price">30 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, prosciutto crudo, sos pizza (500g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~980 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Salami</h3>
+                        <span class="item-price">30 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, salam, sos pizza (500g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~950 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Kids</h3>
+                        <span class="item-price">30 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, salam, sos pizza (500g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~900 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Margherita</h3>
+                        <span class="item-price">23 RON</span>
+                    </div>
+                    <p class="item-description">Mozzarella, sos pizza (450g)</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~800 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preparate din Porc Section -->
+            <section id="porc" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-bacon"></i>
+                        Preparate din porc
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Ciolan de porc cu os glazurat</h3>
+                        <span class="item-price">53 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți și sos de hrean</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1300 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Coaste de porc cu sos BBQ</h3>
+                        <span class="item-price">55 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1250 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Ceafă țigănească</h3>
+                        <span class="item-price">50 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi, slăninuță și ardei copt</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1150 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Ceafă de porc la grătar</h3>
+                        <span class="item-price">37 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~900 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Șnițel vienez</h3>
+                        <span class="item-price">37 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~850 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Șnițel de porc în crustă de cartofi</h3>
+                        <span class="item-price">37 RON</span>
+                    </div>
+                    <p class="item-description">Cu garnitură și smântână</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~950 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Mici (1 buc)</h3>
+                        <span class="item-price">6 RON</span>
+                    </div>
+                    <p class="item-description">Mic la grătar</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~250 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preparate din Pasăre Section -->
+            <section id="pasare" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-drumstick-bite"></i>
+                        Preparate din pasăre
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Pulpe de rață</h3>
+                        <span class="item-price">62 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi gratinați și varză roșie</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~1100 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Coaste de pui</h3>
+                        <span class="item-price">35 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți și sos de usturoi</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~850 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Aripioare de pui marinate</h3>
+                        <span class="item-price">35 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți și sos la alegere</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~950 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Crispy strips</h3>
+                        <span class="item-price">35 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți și sos</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~900 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Aripioare crispy</h3>
+                        <span class="item-price">35 RON</span>
+                    </div>
+                    <p class="item-description">Cu cartofi prăjiți și sos</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~950 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Șnițel de pui în crustă de cartofi</h3>
+                        <span class="item-price">37 RON</span>
+                    </div>
+                    <p class="item-description">Cu garnitură și smântână</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~950 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Piept de pui la grătar</h3>
+                        <span class="item-price">22 RON</span>
+                    </div>
+                    <p class="item-description">Fără garnitură</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~350 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sosuri Section -->
+            <section id="sosuri" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-pepper-hot"></i>
+                        Sosuri
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Sos de hrean</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~70 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Sos Vama9 (maioneză, ketchup picant)</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~90 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Sos Barbeque</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~60 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Sos dulce-picant</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~65 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Sos picant</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~70 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Sos cheddar</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~100 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Sos de usturoi cu smântână</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~80 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Mujdei de usturoi</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~40 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Smântână</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~60 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Muștar</h3>
+                        <span class="item-price">4 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~30 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Salate Section -->
+            <section id="salate" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-leaf"></i>
+                        Salate
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Salată asortată (200g)</h3>
+                        <span class="item-price">8 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~150 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Salată de varză albă (200g)</h3>
+                        <span class="item-price">6 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~100 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Salată de ceapă (200g)</h3>
+                        <span class="item-price">5 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~80 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Salată de ardei copt (200g)</h3>
+                        <span class="item-price">10 RON</span>
+                    </div>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~160 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Desert Section -->
+            <section id="desert" class="menu-category">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-ice-cream"></i>
+                        Desert
+                    </h2>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Lava cake cu înghețată</h3>
+                        <span class="item-price">22 RON</span>
+                    </div>
+                    <p class="item-description">Prăjitură caldă cu ciocolată topită și înghețată</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~700 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Lava cake cu caramel sărat și înghețată</h3>
+                        <span class="item-price">22 RON</span>
+                    </div>
+                    <p class="item-description">Versiune cu caramel</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~720 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Papanasi (1 buc)</h3>
+                        <span class="item-price">15 RON</span>
+                    </div>
+                    <p class="item-description">Cu smântână și dulceață de afine</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~550 kcal
+                        </span>
+                    </div>
+                </div>
+
+                <div class="menu-item-card">
+                    <div class="item-header">
+                        <h3>Clătită cu înghețată și topping de ciocolată</h3>
+                        <span class="item-price">12 RON</span>
+                    </div>
+                    <p class="item-description">200g</p>
+                    <div class="item-meta">
+                        <span class="calories">
+                            <i class="fas fa-fire"></i>
+                            ~480 kcal
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="menu-footer">
+        <p>&copy; 2025 VAMA9. Toate drepturile rezervate.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="menu-page.js"></script>
+</body>
+</html>
