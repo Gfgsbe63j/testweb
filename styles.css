@@ -361,6 +361,8 @@ a {
     align-items: center;
     height: 80px;
     min-height: 80px;
+    /* Prevent layout shift */
+    contain: layout;
 }
 
 .nav-brand {
@@ -457,6 +459,7 @@ a {
     font-size: 0.85rem;
     min-height: 44px; /* WCAG tap target minimum */
     min-width: 44px;
+    will-change: transform;
 }
 
 .nav-cta-large {
@@ -465,20 +468,22 @@ a {
     border-radius: var(--radius-lg);
     font-weight: 700;
     box-shadow: 0 4px 16px rgba(5, 150, 105, 0.25);
+    /* Reserve space for hover effect to prevent layout shift */
+    margin: 3px;
 }
 
 .nav-cta:hover,
 .nav-cta:focus {
     background: var(--accent-primary-dark);
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
     outline: none;
 }
 
 .nav-cta-large:hover,
 .nav-cta-large:focus {
-    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35);
+    /* Use scale instead of translateY to prevent layout shift */
+    transform: scale(1.02);
 }
 
 .nav-toggle {
@@ -1627,7 +1632,7 @@ section {
 }
 
 .footer-brand p {
-    color: var(--medium-grey);
+    color: #a0a0a0; /* Improved contrast for WCAG AA compliance */
     margin: 0;
 }
 
@@ -1638,7 +1643,7 @@ section {
 }
 
 .footer-links a {
-    color: var(--light-grey);
+    color: #d4d4d4; /* Improved contrast for WCAG AA compliance */
     text-decoration: none;
     transition: var(--transition-base);
     font-weight: 500;
@@ -1681,7 +1686,7 @@ section {
     padding-top: var(--spacing-lg);
     border-top: 1px solid var(--dark-grey);
     text-align: center;
-    color: var(--medium-grey);
+    color: #a0a0a0; /* Improved contrast for WCAG AA compliance */
 }
 
 /* =====================================
@@ -2408,6 +2413,28 @@ section {
 .nav-link,
 .category-btn {
     contain: layout;
+}
+
+/* Additional performance optimizations */
+.hero-content,
+.nav-cta,
+.btn {
+    will-change: auto; /* Only set will-change when needed */
+}
+
+/* Reduce paint areas and prevent layout shift */
+img {
+    content-visibility: auto;
+    /* Prevent layout shift by reserving space */
+    max-width: 100%;
+    height: auto;
+}
+
+/* Explicit sizes for hero to prevent CLS */
+.hero {
+    /* Use transform for GPU acceleration */
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 
