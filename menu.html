@@ -101,13 +101,20 @@
         }
         .category-nav {
             position: fixed;
-            top: 162px;
-            width: 100%;
-            background: #f9fafb;
+            top: 170px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1360px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             z-index: 99;
         }
         .menu-page-content {
-            padding-top: 240px;
+            padding-top: 260px;
         }
     </style>
 </head>
@@ -1049,7 +1056,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offset = 240;
+                    const offset = 270;
                     const targetPosition = target.offsetTop - offset;
                     window.scrollTo({
                         top: targetPosition,
@@ -1059,21 +1066,17 @@
             });
         });
 
-        // Sticky category nav
+        // Scroll effects for both navbars
         window.addEventListener('scroll', function() {
-            const nav = document.getElementById('categoryNav');
+            const categoryNav = document.getElementById('categoryNav');
             const navbar = document.getElementById('navbar');
 
-            if (window.scrollY > 50 && navbar) {
-                navbar.classList.add('scrolled');
-            } else if (navbar) {
-                navbar.classList.remove('scrolled');
-            }
-
-            if (window.scrollY > 100) {
-                nav.classList.add('sticky');
+            if (window.scrollY > 50) {
+                if (navbar) navbar.classList.add('scrolled');
+                if (categoryNav) categoryNav.classList.add('scrolled');
             } else {
-                nav.classList.remove('sticky');
+                if (navbar) navbar.classList.remove('scrolled');
+                if (categoryNav) categoryNav.classList.remove('scrolled');
             }
         });
     </script>
