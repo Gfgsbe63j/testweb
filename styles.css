@@ -1330,6 +1330,161 @@ section {
 }
 
 /* =====================================
+   DAILY SPECIALS SECTION
+   ===================================== */
+
+.specials {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f4 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.specials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(5, 150, 105, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.facebook-feed-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: start;
+    margin-bottom: var(--spacing-xl);
+}
+
+.facebook-feed-container {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    justify-content: center;
+    min-height: 600px;
+    position: relative;
+}
+
+/* Facebook plugin responsive wrapper */
+.facebook-feed-container .fb-page {
+    width: 100%;
+    max-width: 500px;
+}
+
+.facebook-feed-container .fb-page,
+.facebook-feed-container .fb-page > span,
+.facebook-feed-container .fb-page iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.specials-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.specials-card {
+    background: var(--white);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    border-left: 4px solid var(--accent-primary);
+}
+
+.specials-card:hover,
+.specials-card:focus-within {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-md);
+}
+
+.specials-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-primary-light) 100%);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+}
+
+.specials-card h3 {
+    font-size: 1.25rem;
+    color: var(--black);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.specials-card p {
+    color: var(--medium-grey);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.specials-cta {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.specials-cta .btn {
+    min-width: 250px;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+    .facebook-feed-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .facebook-feed-container {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .facebook-feed-container {
+        padding: var(--spacing-sm);
+        min-height: 500px;
+    }
+
+    .specials-card {
+        padding: var(--spacing-md);
+    }
+
+    .specials-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+    }
+
+    .specials-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .specials-card p {
+        font-size: 0.95rem;
+    }
+
+    .specials-cta .btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+/* =====================================
    GALLERY SECTION - STANDARDIZED GRID
    ===================================== */
 

@@ -198,6 +198,7 @@
             <ul class="nav-menu" id="nav-menu" role="menubar">
                 <li role="none"><a href="#home" class="nav-link active" data-translate="nav_home" role="menuitem">Acasă</a></li>
                 <li role="none"><a href="#about" class="nav-link" data-translate="nav_about" role="menuitem">Despre</a></li>
+                <li role="none"><a href="#specials" class="nav-link" data-translate="nav_specials" role="menuitem">Oferte</a></li>
                 <li role="none"><a href="menu.html" class="nav-link" data-translate="nav_menu" role="menuitem">Meniu</a></li>
                 <li role="none"><a href="#gallery" class="nav-link" data-translate="nav_gallery" role="menuitem">Galerie</a></li>
                 <li role="none"><a href="#contact" class="nav-link" data-translate="nav_contact" role="menuitem">Contact</a></li>
@@ -334,6 +335,81 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Specials Section -->
+        <section id="specials" class="specials">
+            <div class="container">
+                <header class="section-header text-center">
+                    <span class="section-badge" data-translate="specials_badge">OFERTE ZILNICE</span>
+                    <h2 class="section-title" data-translate="specials_title">Ce avem nou astăzi</h2>
+                    <p class="section-subtitle" data-translate="specials_subtitle">
+                        Urmărește preparatele noastre speciale de zi cu zi, postate zilnic pe Facebook
+                    </p>
+                </header>
+
+                <div class="facebook-feed-wrapper">
+                    <div class="facebook-feed-container">
+                        <!-- Facebook Page Plugin -->
+                        <div class="fb-page"
+                             data-href="https://www.facebook.com/profile.php?id=61576052340245"
+                             data-tabs="timeline"
+                             data-width="500"
+                             data-height="600"
+                             data-small-header="true"
+                             data-adapt-container-width="true"
+                             data-hide-cover="false"
+                             data-show-facepile="false">
+                            <blockquote cite="https://www.facebook.com/profile.php?id=61576052340245" class="fb-xfbml-parse-ignore">
+                                <a href="https://www.facebook.com/profile.php?id=61576052340245">VAMA9</a>
+                            </blockquote>
+                        </div>
+                    </div>
+
+                    <div class="specials-info">
+                        <div class="specials-card">
+                            <div class="specials-icon" aria-hidden="true">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3 data-translate="specials_daily_title">Preparate Proaspete</h3>
+                            <p data-translate="specials_daily_text">
+                                Meniul nostru special se schimbă zilnic, pregătit cu ingrediente proaspete de sezon.
+                            </p>
+                        </div>
+
+                        <div class="specials-card">
+                            <div class="specials-icon" aria-hidden="true">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 data-translate="specials_time_title">Actualizări Zilnice</h3>
+                            <p data-translate="specials_time_text">
+                                Postăm ofertele zilnice în fiecare dimineață pe pagina noastră de Facebook.
+                            </p>
+                        </div>
+
+                        <div class="specials-card">
+                            <div class="specials-icon" aria-hidden="true">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 data-translate="specials_exclusive_title">Oferte Exclusive</h3>
+                            <p data-translate="specials_exclusive_text">
+                                Urmărește-ne pentru promoții speciale și preparate limitate disponibile doar astăzi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="specials-cta">
+                    <a href="https://www.facebook.com/profile.php?id=61576052340245"
+                       class="btn btn-primary"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Urmărește VAMA9 pe Facebook">
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                        <span data-translate="specials_follow">Urmărește-ne pe Facebook</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -649,6 +725,7 @@
                 <nav class="footer-links" aria-label="Link-uri footer">
                     <a href="#home" data-translate="footer_home">Acasă</a>
                     <a href="#about" data-translate="footer_about">Despre</a>
+                    <a href="#specials" data-translate="footer_specials">Oferte</a>
                     <a href="menu.html" data-translate="footer_menu">Meniu</a>
                     <a href="#gallery" data-translate="footer_gallery">Galerie</a>
                     <a href="#contact" data-translate="footer_contact">Contact</a>
@@ -710,6 +787,10 @@
         });
     </script>
     <script src="script.js" defer onerror="console.error('Failed to load main script')"></script>
+
+    <!-- Facebook SDK -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ro_RO/sdk.js#xfbml=1&version=v18.0" nonce=""></script>
 
     <!-- Service Worker Registration -->
     <script>
