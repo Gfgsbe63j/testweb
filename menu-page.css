@@ -19,22 +19,10 @@ body {
     flex: 1;
 }
 
-/* Menu Header */
-.menu-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    padding: 0.6rem;
-}
-
 /* Breadcrumb Navigation */
 .breadcrumb {
     position: fixed;
-    top: 65px;
+    top: 120px;
     left: 0;
     right: 0;
     background: #f8f9fa;
@@ -129,7 +117,7 @@ body {
 /* Category Navigation */
 .category-nav {
     position: fixed;
-    top: 107px; /* Adjusted for breadcrumb */
+    top: 162px; /* Adjusted for new navbar */
     left: 0;
     right: 0;
     background: #f9fafb;
@@ -213,7 +201,7 @@ body {
 
 /* Main Content */
 .menu-page-content {
-    padding-top: 182px; /* Adjusted for breadcrumb */
+    padding-top: 240px; /* Adjusted for new navbar */
     background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
@@ -259,8 +247,8 @@ body {
 
 /* Category Sections */
 .menu-category {
-    margin-bottom: 3rem;
-    scroll-margin-top: 150px;
+    margin-bottom: 1.5rem; /* Reduced from 3rem for less white space */
+    scroll-margin-top: 250px; /* Adjusted for new navbar */
 }
 
 .category-header {
@@ -462,21 +450,13 @@ body {
 
 /* Tablet */
 @media (max-width: 768px) {
-    .menu-header {
-        padding: 0.75rem;
-    }
-
-    .menu-logo .brand-text {
-        font-size: 1.5rem;
-    }
-
-    .back-home {
-        padding: 0.65rem 1rem;
-        font-size: 0.9rem;
+    .navbar {
+        top: 10px;
+        width: calc(100% - 20px);
     }
 
     .breadcrumb {
-        top: 60px;
+        top: 110px;
         padding: 0.4rem 0;
     }
 
@@ -485,7 +465,7 @@ body {
     }
 
     .category-nav {
-        top: 102px; /* Adjusted for smaller breadcrumb */
+        top: 152px; /* Adjusted for new navbar */
     }
 
     .cat-link {
@@ -499,7 +479,7 @@ body {
     }
 
     .menu-page-content {
-        padding-top: 172px; /* Adjusted for breadcrumb */
+        padding-top: 222px; /* Adjusted for new navbar */
     }
 
     .menu-footer-info {
@@ -573,9 +553,8 @@ body {
 /* Print Styles for Menu */
 @media print {
     /* Hide navigation elements */
-    .menu-header,
+    .navbar,
     .category-nav,
-    .back-home,
     .breadcrumb {
         display: none !important;
     }
