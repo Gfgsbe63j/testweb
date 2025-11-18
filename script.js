@@ -71,7 +71,7 @@ const utils = {
 const translations = {
     ro: {
         // Navigation
-        nav_home: 'Acasă', nav_about: 'Despre', nav_specials: 'Oferte', nav_menu: 'Meniu',
+        nav_home: 'Acasă', nav_about: 'Despre', nav_menu: 'Meniu',
         nav_gallery: 'Galerie', nav_contact: 'Contact', nav_reserve: 'Evenimente',
 
         // Hero Section
@@ -90,19 +90,7 @@ const translations = {
         about_fresh_title: 'Prospețime & Calitate', about_fresh_text: 'Ingrediente proaspete și preparate cu atenție la detalii.',
         about_open: 'Deschidem', about_close: 'Închidem', about_days: 'Zile',
         about_interior: 'Interior Modern', about_terrace: 'Terasă', about_food: 'Mâncare',
-
-        // Daily Specials Section
-        specials_badge: 'OFERTE ZILNICE',
-        specials_title: 'Ce avem nou astăzi',
-        specials_subtitle: 'Urmărește preparatele noastre speciale de zi cu zi, postate zilnic pe Facebook',
-        specials_daily_title: 'Preparate Proaspete',
-        specials_daily_text: 'Meniul nostru special se schimbă zilnic, pregătit cu ingrediente proaspete de sezon.',
-        specials_time_title: 'Actualizări Zilnice',
-        specials_time_text: 'Postăm ofertele zilnice în fiecare dimineață pe pagina noastră de Facebook.',
-        specials_exclusive_title: 'Oferte Exclusive',
-        specials_exclusive_text: 'Urmărește-ne pentru promoții speciale și preparate limitate disponibile doar astăzi.',
-        specials_follow: 'Urmărește-ne pe Facebook',
-
+        
         // Menu Section
         menu_badge: 'MENIUL NOSTRU', menu_title: 'Bucătărie Internațională',
         menu_subtitle: 'O selecție diversă de preparate pentru toate gusturile',
@@ -140,12 +128,12 @@ const translations = {
         
         // Footer
         footer_tagline: 'Un popas modern pe drumul tău', footer_home: 'Acasă',
-        footer_about: 'Despre', footer_specials: 'Oferte', footer_menu: 'Meniu', footer_gallery: 'Galerie',
+        footer_about: 'Despre', footer_menu: 'Meniu', footer_gallery: 'Galerie', 
         footer_contact: 'Contact', footer_rights: 'Toate drepturile rezervate'
     },
     en: {
         // Navigation
-        nav_home: 'Home', nav_about: 'About', nav_specials: 'Specials', nav_menu: 'Menu',
+        nav_home: 'Home', nav_about: 'About', nav_menu: 'Menu',
         nav_gallery: 'Gallery', nav_contact: 'Contact', nav_reserve: 'Events',
         
         // Hero Section
@@ -164,19 +152,7 @@ const translations = {
         about_fresh_title: 'Freshness & Quality', about_fresh_text: 'Fresh ingredients and dishes prepared with attention to detail.',
         about_open: 'Open', about_close: 'Close', about_days: 'Days',
         about_interior: 'Modern Interior', about_terrace: 'Terrace', about_food: 'Food',
-
-        // Daily Specials Section
-        specials_badge: 'DAILY SPECIALS',
-        specials_title: 'What\'s New Today',
-        specials_subtitle: 'Follow our daily specials posted every day on Facebook',
-        specials_daily_title: 'Fresh Dishes',
-        specials_daily_text: 'Our special menu changes daily, prepared with fresh seasonal ingredients.',
-        specials_time_title: 'Daily Updates',
-        specials_time_text: 'We post daily specials every morning on our Facebook page.',
-        specials_exclusive_title: 'Exclusive Offers',
-        specials_exclusive_text: 'Follow us for special promotions and limited dishes available only today.',
-        specials_follow: 'Follow us on Facebook',
-
+        
         // Menu Section
         menu_badge: 'OUR MENU', menu_title: 'International Cuisine',
         menu_subtitle: 'A diverse selection of dishes for all tastes',
@@ -214,12 +190,12 @@ const translations = {
         
         // Footer
         footer_tagline: 'A modern stop on your journey', footer_home: 'Home',
-        footer_about: 'About', footer_specials: 'Specials', footer_menu: 'Menu', footer_gallery: 'Gallery',
+        footer_about: 'About', footer_menu: 'Menu', footer_gallery: 'Gallery', 
         footer_contact: 'Contact', footer_rights: 'All rights reserved'
     },
     fr: {
         // Navigation
-        nav_home: 'Accueil', nav_about: 'À propos', nav_specials: 'Spécialités', nav_menu: 'Menu',
+        nav_home: 'Accueil', nav_about: 'À propos', nav_menu: 'Menu',
         nav_gallery: 'Galerie', nav_contact: 'Contact', nav_reserve: 'Événements',
         
         // Hero Section
@@ -238,19 +214,7 @@ const translations = {
         about_fresh_title: 'Fraîcheur & Qualité', about_fresh_text: 'Ingrédients frais et plats préparés avec attention aux détails.',
         about_open: 'Ouvrir', about_close: 'Fermer', about_days: 'Jours',
         about_interior: 'Intérieur Moderne', about_terrace: 'Terrasse', about_food: 'Nourriture',
-
-        // Daily Specials Section
-        specials_badge: 'SPÉCIALITÉS DU JOUR',
-        specials_title: 'Quoi de neuf aujourd\'hui',
-        specials_subtitle: 'Suivez nos spécialités quotidiennes publiées chaque jour sur Facebook',
-        specials_daily_title: 'Plats Frais',
-        specials_daily_text: 'Notre menu spécial change quotidiennement, préparé avec des ingrédients frais de saison.',
-        specials_time_title: 'Mises à jour quotidiennes',
-        specials_time_text: 'Nous publions les spécialités du jour chaque matin sur notre page Facebook.',
-        specials_exclusive_title: 'Offres Exclusives',
-        specials_exclusive_text: 'Suivez-nous pour des promotions spéciales et des plats limités disponibles uniquement aujourd\'hui.',
-        specials_follow: 'Suivez-nous sur Facebook',
-
+        
         // Menu Section
         menu_badge: 'NOTRE MENU', menu_title: 'Cuisine Internationale',
         menu_subtitle: 'Une sélection variée de plats pour tous les goûts',
@@ -289,7 +253,7 @@ const translations = {
         
         // Footer
         footer_tagline: 'Un arrêt moderne sur votre route', footer_home: 'Accueil',
-        footer_about: 'À propos', footer_specials: 'Spécialités', footer_menu: 'Menu', footer_gallery: 'Galerie',
+        footer_about: 'À propos', footer_menu: 'Menu', footer_gallery: 'Galerie', 
         footer_contact: 'Contact', footer_rights: 'Tous droits réservés'
     }
 };
