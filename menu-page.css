@@ -117,17 +117,23 @@ body {
 /* Category Navigation */
 .category-nav {
     position: fixed;
-    top: 162px; /* Adjusted for new navbar */
-    left: 0;
-    right: 0;
-    background: #f9fafb;
-    border-bottom: 2px solid #e5e7eb;
+    top: 170px; /* Adjusted to sit below breadcrumb */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1360px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     z-index: 99;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: #047857 #e5e7eb;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Custom scrollbar for webkit browsers (Chrome, Safari, Edge) */
@@ -150,8 +156,11 @@ body {
     background: #065f46;
 }
 
-.category-nav.sticky {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+.category-nav.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .category-nav-container {
@@ -201,7 +210,7 @@ body {
 
 /* Main Content */
 .menu-page-content {
-    padding-top: 240px; /* Adjusted for new navbar */
+    padding-top: 260px; /* Adjusted for floating navbars */
     background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
@@ -248,7 +257,7 @@ body {
 /* Category Sections */
 .menu-category {
     margin-bottom: 1.5rem; /* Reduced from 3rem for less white space */
-    scroll-margin-top: 250px; /* Adjusted for new navbar */
+    scroll-margin-top: 270px; /* Adjusted for floating navbars */
 }
 
 .category-header {
@@ -465,7 +474,8 @@ body {
     }
 
     .category-nav {
-        top: 152px; /* Adjusted for new navbar */
+        top: 160px; /* Adjusted to sit below breadcrumb on mobile */
+        width: calc(100% - 20px);
     }
 
     .cat-link {
@@ -479,7 +489,7 @@ body {
     }
 
     .menu-page-content {
-        padding-top: 222px; /* Adjusted for new navbar */
+        padding-top: 240px; /* Adjusted for floating navbars */
     }
 
     .menu-footer-info {
