@@ -2,8 +2,8 @@
    VAMA9 Service Worker - Offline Support
    ===================================================== */
 
-const CACHE_NAME = 'vama9-v2';
-const RUNTIME_CACHE = 'vama9-runtime-v2';
+const CACHE_NAME = 'vama9-v3';
+const RUNTIME_CACHE = 'vama9-runtime-v3';
 
 // Assets to cache immediately on install
 const PRECACHE_ASSETS = [
