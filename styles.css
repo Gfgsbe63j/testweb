@@ -343,6 +343,9 @@ a {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     z-index: var(--z-fixed);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Prevent layout shift */
+    will-change: transform;
+    contain: layout style;
 }
 
 .navbar.scrolled {
@@ -362,7 +365,7 @@ a {
     height: 80px;
     min-height: 80px;
     /* Prevent layout shift */
-    contain: layout;
+    contain: layout style;
 }
 
 .nav-brand {
@@ -382,6 +385,9 @@ a {
     line-height: 1;
     display: flex;
     align-items: center;
+    /* Reserve space to prevent shift during font load */
+    min-width: 140px;
+    min-height: 40px;
 }
 
 .nav-menu {
@@ -470,6 +476,8 @@ a {
     box-shadow: 0 4px 16px rgba(5, 150, 105, 0.25);
     /* Reserve space for hover effect to prevent layout shift */
     margin: 3px;
+    /* Prevent layout shift */
+    contain: layout style paint;
 }
 
 .nav-cta:hover,
@@ -525,6 +533,7 @@ a {
 .hero {
   position: relative;
   min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -532,11 +541,13 @@ a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll; /* Changed from fixed to scroll to prevent CLS on desktop */
   color: var(--white);
   text-align: center;
   padding: var(--spacing-xl) var(--spacing-lg);
-  padding-top: calc(var(--spacing-xl) + 80px);
+  padding-top: calc(var(--spacing-xl) + 100px); /* Reserve space for navbar */
+  /* Prevent layout shift */
+  contain: layout style;
 }
 
 .hero--fullscreen {
@@ -559,6 +570,9 @@ a {
   z-index: 2;
   max-width: 1000px;
   margin: 0 auto;
+  /* Reserve space to prevent layout shift during font load */
+  min-height: 400px;
+  contain: layout style;
 }
 
 .hero-tagline {
@@ -582,6 +596,11 @@ a {
   line-height: 0.9;
   color: var(--white);
   text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.6);
+  /* Reserve explicit space to prevent CLS during font load */
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-actions {
@@ -590,6 +609,8 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: var(--spacing-lg);
+  /* Reserve space to prevent layout shift */
+  min-height: 80px;
 }
 
 .btn-hero-primary,
@@ -608,6 +629,9 @@ a {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
+  /* Reserve space to prevent layout shift */
+  min-height: 60px;
+  contain: layout style paint;
 }
 
 .btn-hero-primary::before,
@@ -654,7 +678,7 @@ a {
 .btn-hero-primary:focus {
   background: linear-gradient(135deg, var(--accent-primary-dark) 0%, #047857 100%);
   border-color: var(--accent-primary-light);
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 16px 40px rgba(5, 150, 105, 0.5), 0 0 30px rgba(5, 150, 105, 0.3);
   animation: none;
 }
@@ -683,7 +707,7 @@ a {
 .btn-hero-secondary:focus {
   background: rgba(255, 255, 255, 0.25);
   border-color: var(--white);
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 0 16px 40px rgba(255, 255, 255, 0.4), 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
@@ -714,6 +738,9 @@ a {
   opacity: 0.9;
   animation: float 2s ease-in-out infinite;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  /* Prevent layout shift */
+  will-change: transform;
+  contain: layout style;
 }
 
 .hero-scroll-indicator i {
@@ -2435,6 +2462,8 @@ img {
     /* Use transform for GPU acceleration */
     transform: translateZ(0);
     backface-visibility: hidden;
+    /* Prevent layout shift - reserve space */
+    min-height: 100vh;
 }
 
 

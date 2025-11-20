@@ -72,18 +72,27 @@
         }
         .navbar {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 1360px;
             z-index: 1000;
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.85);
             height: 80px;
+            border-radius: 16px;
+            /* Prevent layout shift */
+            contain: layout style;
         }
         .hero {
             min-height: 100vh;
-            padding-top: 80px;
+            height: 100vh;
+            padding-top: 100px;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f4 100%);
+            /* Prevent layout shift */
+            contain: layout style;
         }
         /* Mobile viewport height fix */
         @media (max-width: 768px) {
@@ -114,16 +123,19 @@
         @font-face {
             font-family: 'Bebas Fallback';
             src: local('Impact');
-            size-adjust: 95%;
-            ascent-override: 100%;
-            descent-override: 20%;
+            size-adjust: 96%;
+            ascent-override: 95%;
+            descent-override: 25%;
             line-gap-override: 0%;
         }
+        /* Apply fallback fonts immediately to prevent CLS */
         body {
-            font-family: 'Inter Fallback', Arial, sans-serif;
+            font-family: 'Inter', 'Inter Fallback', Arial, sans-serif;
         }
         .brand-text, .hero-headline, h1, h2, .section-title {
-            font-family: 'Bebas Fallback', Impact, sans-serif;
+            font-family: 'Bebas Neue', 'Bebas Fallback', Impact, sans-serif;
+            /* Prevent layout shift during font load */
+            font-display: swap;
         }
     </style>
     <link rel="preload" href="styles.css?v=2" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
