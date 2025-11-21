@@ -124,8 +124,8 @@
             font-family: 'Bebas Fallback', Impact, sans-serif;
         }
     </style>
-    <link rel="preload" href="styles.css?v=3" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css?v=3"></noscript>
+    <link rel="preload" href="styles.css?v=4" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css?v=4"></noscript>
     
     <!-- Structured Data for Restaurant -->
     <script type="application/ld+json">
@@ -718,7 +718,7 @@
             console.error('Unhandled promise rejection:', e.reason);
         });
     </script>
-    <script src="script.js?v=3" defer onerror="console.error('Failed to load main script')"></script>
+    <script src="script.js?v=4" defer onerror="console.error('Failed to load main script')"></script>
 
     <!-- Service Worker Registration with Auto-Update -->
     <script>
@@ -738,10 +738,10 @@
                     .then((registration) => {
                         console.log('ServiceWorker registered:', registration.scope);
 
-                        // Check for updates every 60 seconds
+                        // Check for updates every 5 minutes
                         setInterval(() => {
                             registration.update();
-                        }, 60000);
+                        }, 300000);
 
                         // Handle waiting service worker
                         if (registration.waiting) {
