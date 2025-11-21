@@ -2,8 +2,8 @@
    VAMA9 Service Worker - Offline Support
    ===================================================== */
 
-const CACHE_NAME = 'vama9-v2';
-const RUNTIME_CACHE = 'vama9-runtime-v2';
+const CACHE_NAME = 'vama9-v3';
+const RUNTIME_CACHE = 'vama9-runtime-v3';
 
 // Assets to cache immediately on install
 const PRECACHE_ASSETS = [
@@ -54,7 +54,7 @@ self.addEventListener('activate', (event) => {
     );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - network-first for HTML, cache-first for assets
 self.addEventListener('fetch', (event) => {
     // Skip cross-origin requests
     if (!event.request.url.startsWith(self.location.origin)) {
@@ -66,18 +66,45 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    event.respondWith(
-        caches.match(event.request).then((cachedResponse) => {
-            if (cachedResponse) {
-                // Return cached version and update cache in background
-                fetchAndCache(event.request);
-                return cachedResponse;
-            }
+    const url = new URL(event.request.url);
+    const isHTMLRequest = event.request.headers.get('accept')?.includes('text/html') ||
+                          url.pathname.endsWith('.html') ||
+                          url.pathname === '/';
 
-            // Not in cache, fetch from network
-            return fetchAndCache(event.request);
-        })
-    );
+    if (isHTMLRequest) {
+        // Network-first strategy for HTML files
+        event.respondWith(
+            fetch(event.request)
+                .then((response) => {
+                    // Clone and cache the response
+                    const responseToCache = response.clone();
+                    caches.open(RUNTIME_CACHE).then((cache) => {
+                        cache.put(event.request, responseToCache);
+                    });
+                    return response;
+                })
+                .catch(() => {
+                    // Fallback to cache if network fails
+                    return caches.match(event.request).then((cachedResponse) => {
+                        return cachedResponse || caches.match('/index.html');
+                    });
+                })
+        );
+    } else {
+        // Cache-first strategy for static assets (CSS, JS, images)
+        event.respondWith(
+            caches.match(event.request).then((cachedResponse) => {
+                if (cachedResponse) {
+                    // Return cached version and update cache in background
+                    fetchAndCache(event.request);
+                    return cachedResponse;
+                }
+
+                // Not in cache, fetch from network
+                return fetchAndCache(event.request);
+            })
+        );
+    }
 });
 
 // Helper function to fetch and cache
