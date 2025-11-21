@@ -63,11 +63,11 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
     <!-- Styles with preload and priority -->
-    <link rel="preload" href="styles.css?v=3" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="menu-page.css?v=3" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles.css?v=4" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="menu-page.css?v=4" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-        <link rel="stylesheet" href="styles.css?v=3">
-        <link rel="stylesheet" href="menu-page.css?v=3">
+        <link rel="stylesheet" href="styles.css?v=4">
+        <link rel="stylesheet" href="menu-page.css?v=4">
     </noscript>
 
     <!-- Inline critical CSS for menu page -->
@@ -1032,10 +1032,10 @@
                     .then((registration) => {
                         console.log('ServiceWorker registered:', registration.scope);
 
-                        // Check for updates every 60 seconds
+                        // Check for updates every 5 minutes
                         setInterval(() => {
                             registration.update();
-                        }, 60000);
+                        }, 300000);
 
                         // Handle waiting service worker
                         if (registration.waiting) {
