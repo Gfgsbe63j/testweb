@@ -126,8 +126,8 @@
             font-family: 'Bebas Fallback', Impact, sans-serif;
         }
     </style>
-    <link rel="preload" href="styles.css?v=2" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="styles.css?v=2"></noscript>
+    <link rel="preload" href="styles.css?v=3" as="style" fetchpriority="high" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css?v=3"></noscript>
     
     <!-- Structured Data for Restaurant -->
     <script type="application/ld+json">
@@ -720,15 +720,47 @@
             console.error('Unhandled promise rejection:', e.reason);
         });
     </script>
-    <script src="script.js?v=2" defer onerror="console.error('Failed to load main script')"></script>
+    <script src="script.js?v=3" defer onerror="console.error('Failed to load main script')"></script>
 
-    <!-- Service Worker Registration -->
+    <!-- Service Worker Registration with Auto-Update -->
     <script>
         if ('serviceWorker' in navigator) {
+            let refreshing = false;
+
+            // Detect controller change and reload
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (!refreshing) {
+                    refreshing = true;
+                    window.location.reload();
+                }
+            });
+
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
                     .then((registration) => {
                         console.log('ServiceWorker registered:', registration.scope);
+
+                        // Check for updates every 60 seconds
+                        setInterval(() => {
+                            registration.update();
+                        }, 60000);
+
+                        // Handle waiting service worker
+                        if (registration.waiting) {
+                            registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                        }
+
+                        // Handle service worker updates
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New service worker available, activate it
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                }
+                            });
+                        });
                     })
                     .catch((error) => {
                         console.log('ServiceWorker registration failed:', error);
